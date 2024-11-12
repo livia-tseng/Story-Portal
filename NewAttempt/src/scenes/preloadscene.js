@@ -30,7 +30,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('creditsBackground', './assets/images/UI-board-Large-stone.png');
         this.load.image('exitButton', './assets/images/Close-Button.png');
         this.load.image('cancelButton', './assets/images/TextBTN_Cancel.png');
-
+        this.load.image('star', './assets/images/star.png');
         //These are all free from this random website i have no idea which ones i clicked tbh
     }
     

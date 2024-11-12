@@ -55,13 +55,27 @@ export class MainMenuScene extends Phaser.Scene {
         creditsButton.on("pointerup", ()=>{
             console.log("Credits Button Pressed");
             this.scene.start(SCENE_KEYS.CREDITS_SCENE); //Calling start will automatically kill current scene and start the new one
-        })
+        })  
 
         //Same deal
         startButton.on("pointerup", ()=>{
             console.log("Start Button Pressed");
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         })
+
+        //Emitter of stars for mouse click
+        const emitter = this.add.particles(0, 0, 'star', {
+            lifespan: 400,
+            speed: { min: 150, max: 200 },
+            alpha: { start: 1, end: 0.1},
+            rotate: { start: 0, end: 360 },
+            emitting: false
+        });
+
+        //On click, emit 25 stars at mouse position
+        this.input.on('pointerdown', pointer => {
+            emitter.emitParticleAt(pointer.worldX, pointer.worldY, 25);
+        });
     }
 
     
