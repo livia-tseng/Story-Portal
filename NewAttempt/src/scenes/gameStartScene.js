@@ -15,7 +15,10 @@ export class GameStartScene extends Phaser.Scene {
 
     create(){
         //Background
-        this.add.image(0,0,'background').setOrigin(0).setScale(0.92592592592, 1.08499095841).setDepth(0);
+        const screenWidth = this.scale.width / this.textures.get('background').getSourceImage().width;
+        const screenHeight = this.scale.height / this.textures.get('background').getSourceImage().height;
+        const newScale = Math.max(screenWidth, screenHeight)
+        this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
         this.add.text(400, 120, 'In Game Start Scene', {
             fontFamily: 'BadComic-Regular',

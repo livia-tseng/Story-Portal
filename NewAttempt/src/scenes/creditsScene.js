@@ -61,7 +61,7 @@ export class CreditsScene extends Phaser.Scene {
             fontSize: '35px'
         }).setOrigin(0.5).setDepth(1);
 
-        let samuelName = this.add.text(500, 330, 'Samuel!', {
+        let samuelName = this.add.text(500, 330, 'Sammy!', {
             fontFamily: 'BadComic-Regular',
             color: '#F8C8DC',
             fontSize: '35px'

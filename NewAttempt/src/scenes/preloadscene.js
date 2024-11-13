@@ -23,6 +23,7 @@ export class PreloadScene extends Phaser.Scene {
     preload() {
         //this is how you load images (key/name/reference to image, path to actual image file)
         this.load.image('background', './assets/images/polarexpress.webp');
+        this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('startBtn', './assets/images/TextBTN_Big.png');
         this.load.image('creditsBtn', './assets/images/Exclamation_Yellow.png');
         this.load.image('grayExcl', './assets/images/Exclamation_Gray.png');
