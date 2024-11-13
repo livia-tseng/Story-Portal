@@ -22,7 +22,7 @@ export class PreloadScene extends Phaser.Scene {
     //If ur like the guy in the video just preload everything at the beginning in ur preload scene (as done here)
     preload() {
         //this is how you load images (key/name/reference to image, path to actual image file)
-        this.load.image('background', './assets/images/UI-board-Large-parchment.png');
+        this.load.image('background', './assets/images/polarexpress.webp');
         this.load.image('startBtn', './assets/images/TextBTN_Big.png');
         this.load.image('creditsBtn', './assets/images/Exclamation_Yellow.png');
         this.load.image('grayExcl', './assets/images/Exclamation_Gray.png');

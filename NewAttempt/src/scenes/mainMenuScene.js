@@ -16,9 +16,13 @@ export class MainMenuScene extends Phaser.Scene {
 
     //The create method is where you actually draw the stuff u preloaded
     create() {
+        
         //Background
         //The image is not 800 by 600 so i ahve to scale it with math
-        this.add.image(0,0,'background').setOrigin(0).setScale(0.92592592592, 1.08499095841).setDepth(0);
+        const screenWidth = this.scale.width / this.textures.get('background').getSourceImage().width;
+        const screenHeight = this.scale.height / this.textures.get('background').getSourceImage().height;
+        const newScale = Math.max(screenWidth, screenHeight)
+        this.add.image(0,0,'background').setOrigin(0).setScale(newScale).setDepth(0);
         //This shit was like 862x560 or something outrageous
 
 //When adding IMAGES, the x, y coords are defaulted to the middle of the image
@@ -28,7 +32,7 @@ export class MainMenuScene extends Phaser.Scene {
         //Title Text
         const titleText = this.add.text(120, 200, 'The Polar Express', {
             fontFamily: 'BadComic-Regular',
-            color: 'black',
+            color: 'white',
             fontSize: '70px'
         }).setDepth(1);
         
