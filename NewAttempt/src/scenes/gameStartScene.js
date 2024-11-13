@@ -20,12 +20,21 @@ export class GameStartScene extends Phaser.Scene {
         const newScale = Math.max(screenWidth, screenHeight)
         this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
-        this.add.text(400, 120, 'Level Select', {
+        this.add.text(400, 80, 'Level Select', {
             fontFamily: 'BadComic-Regular',
-            color: '#c2ba6d',
-            fontSize: '70px'
+            color: '#837d43',
+            fontSize: '60px'
         }).setOrigin(0.5, 0.5).setDepth(1);
 
+        let levelOneBtn = this.add.image(160, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
+
+        levelOneBtn.setInteractive();
+
+        levelOneBtn.on("pointerup", ()=>{
+            console.log("Credits Button Pressed");
+            this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
+        })
+        
         //Cancel Button to go back to main menu
         let cancelBtn = this.add.image(0,600, 'cancelButton').setOrigin(0, 1).setDepth(1);
         cancelBtn.setInteractive();
