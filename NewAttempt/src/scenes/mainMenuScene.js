@@ -32,7 +32,7 @@ export class MainMenuScene extends Phaser.Scene {
         //Title Text
         const titleText = this.add.text(120, 200, 'The Polar Express', {
             fontFamily: 'BadComic-Regular',
-            color: 'white',
+            color: '#efe157',
             fontSize: '70px'
         }).setDepth(1);
         

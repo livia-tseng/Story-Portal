@@ -20,9 +20,9 @@ export class GameStartScene extends Phaser.Scene {
         const newScale = Math.max(screenWidth, screenHeight)
         this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
-        this.add.text(400, 120, 'In Game Start Scene', {
+        this.add.text(400, 120, 'Level Select', {
             fontFamily: 'BadComic-Regular',
-            color: '#0000FF',
+            color: '#c2ba6d',
             fontSize: '70px'
         }).setOrigin(0.5, 0.5).setDepth(1);
 
