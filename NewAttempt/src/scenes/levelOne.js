@@ -20,11 +20,13 @@ export class LevelOneScene extends Phaser.Scene {
         
         this.add.image(0,0,'polarkidsleeping').setOrigin(0).setScale(screenWidth,screenHeight).setDepth(0);
 
-        const sleep = this.add.text(120, 200,'level one', {
+        const sleep = this.add.text(400,100,'level one', {
                 fontFamily: 'BadComic-Regular',
                 color: 'white',
-                fontSize: '20px',
-        }).setDepth(2);
+                fontSize: '50px',
+        }).setOrigin(0.5).setDepth(2);
+
+        
 }
 
 }
