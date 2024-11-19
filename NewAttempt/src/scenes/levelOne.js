@@ -26,6 +26,17 @@ export class LevelOneScene extends Phaser.Scene {
                 fontSize: '50px',
         }).setOrigin(0.5).setDepth(2);
 
+        const leveloneText = this.add.renderTexture(500,100,400,200).setOrigin(0.5).setDepth(2);
+        leveloneText.draw(this.add.text(0,0, 'Level One', {
+            fontFamily: 'BadComic-Regular',
+            color: 'white',
+            fontSize: '50px'
+        }));
+
+        leveloneText.setAngle(-30); // rotate angle
+        leveloneText.setScale(2,1); // skew
+
+
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
         const startText = this.add.text(0, 0, 'BACK',
@@ -43,7 +54,7 @@ export class LevelOneScene extends Phaser.Scene {
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         })
 
-        this.input.on('pointerdown', () => {
+        this.input.on("pointerdown", () => {
             this.cameras.main.shake(2000, 0.05);
         });
         
