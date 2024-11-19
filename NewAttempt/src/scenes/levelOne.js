@@ -44,7 +44,7 @@ export class LevelOneScene extends Phaser.Scene {
         })
 
         this.input.on('pointerdown', () => {
-            this.cameras.main.shake(2000, 1.0);
+            this.cameras.main.shake(2000, 0.05);
         });
         
 }
