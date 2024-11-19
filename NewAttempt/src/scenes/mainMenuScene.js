@@ -68,17 +68,18 @@ export class MainMenuScene extends Phaser.Scene {
         })
 
         //Emitter of stars for mouse click
-        const emitter = this.add.particles(0, 0, 'star', {
+        const emitterStars = this.add.particles(0, 0, 'star', {
             lifespan: 400,
             speed: { min: 150, max: 200 },
             alpha: { start: 1, end: 0.1},
             rotate: { start: 0, end: 360 },
             emitting: false
         });
+        emitterStars.setDepth(2);
 
         //On click, emit 25 stars at mouse position
         this.input.on('pointerdown', pointer => {
-            emitter.emitParticleAt(pointer.worldX, pointer.worldY, 25);
+            emitterStars.emitParticleAt(pointer.worldX, pointer.worldY, 25);
         });
     }
 
