@@ -3,7 +3,8 @@ export function wrongButton(scene,x,y,assetKey) {
         .setInteractive()
         .setOrigin(0.5)
         .setScale(0.3,0.3)
-        .on('pointerdown', ()=> {wrongButton.setTint(0xff0000).setAlpha(0.5)
+        .on('pointerup', ()=> {wrongButton.setTint(0xff0000).setAlpha(0.5)
+            scene.input.enabled = false;
             let wrongText = scene.add.text(400,300,"Wrong!", {
                 fontSize: "64px",
                 color:"#FF0000",
@@ -11,6 +12,7 @@ export function wrongButton(scene,x,y,assetKey) {
             }).setOrigin(0.5);
             scene.time.delayedCall(1500, ()=> {
                 wrongText.destroy();
+                scene.input.enabled = true;
             })
         })
     return wrongButton;

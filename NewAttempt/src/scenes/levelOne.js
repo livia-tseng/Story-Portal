@@ -29,23 +29,25 @@ export class LevelOneScene extends Phaser.Scene {
 
 
         //Back Button Stuff
-        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
-        const startText = this.add.text(0, 0, 'BACK',
+        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);
+        const backText = this.add.text(0, 0, 'BACK',
             {
                 fontFamily: 'BadComic-Regular',
                 color: '#D3D3D3',
                 fontSize: '60px',
-        }).setOrigin(0.5, 0.7).setDepth(3);
+        }).setOrigin(0.5, 0.7).setDepth(3).setAlpha(0);
         //Container!
-        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]);
+        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, backText]);
         containerBackButton.setSize(backButton.width, backButton.height);
         containerBackButton.setInteractive();
         containerBackButton.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         })
 
         //Stars on Click!
         effectOnClick(this);
+
         this.cameraShakeTimer = this.time.addEvent({
             delay: 500, // Shake every 100ms
             callback: this.shakeCamera,
@@ -75,6 +77,11 @@ export class LevelOneScene extends Phaser.Scene {
                         alpha: 1,      // Target alpha value
                         duration: 1000,  // Duration of fade-in in ms
                         onComplete: () => {
+                            this.tweens.add({
+                                targets: [wb1, corrB, wb2, wb3, backButton, backText],
+                                alpha: 1,
+                                duration: 1000,
+                            });
                             // Re-enable input after animations are complete
                             this.input.enabled = true;
                         }
@@ -84,8 +91,8 @@ export class LevelOneScene extends Phaser.Scene {
         });
 
         //answer buttons
-        wrongButton(this, 160, 500, 'samuelf');
-        correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
+        let wb1 = wrongButton(this, 160, 500, 'samuelf').setAlpha(0);
+        let corrB = correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
             const trainarrive = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'trainarriving');
             trainarrive.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
@@ -103,9 +110,9 @@ export class LevelOneScene extends Phaser.Scene {
                     }
                 })
             })
-        });
-        wrongButton(this,480,500, 'samuelf');
-        wrongButton(this,640,500,'samuelf');
+        }).setAlpha(0);
+        let wb2 = wrongButton(this,480,500, 'samuelf').setAlpha(0);
+        let wb3 = wrongButton(this,640,500,'samuelf').setAlpha(0);
     }
 
     shakeCamera() {
