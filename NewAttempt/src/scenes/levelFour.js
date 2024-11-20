@@ -30,10 +30,26 @@ export class LevelFourScene extends Phaser.Scene {
         this.add.image(0,0, 'snow').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
 
         // answer buttons
-        let corrBtn = correctButton(this, 100, 200, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
-        let wBtn1 = wrongButton(this,220,200,'ameen4').setDepth(2).setAlpha(0);
-        let wBtn2 = wrongButton(this,100,320, 'ameen4').setDepth(2).setAlpha(0);
-        let wBtn3 = wrongButton(this,220,320,'ameen4').setDepth(2).setAlpha(0);
+        let corrBtn = correctButton(this, 200, 50, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
+        let wBtn1 = wrongButton(this,320,50,'ameen4').setDepth(2).setAlpha(0);
+        let wBtn2 = wrongButton(this,200,170, 'ameen4').setDepth(2).setAlpha(0);
+        let wBtn3 = wrongButton(this,320,170,'ameen4').setDepth(2).setAlpha(0);
+
+        //Back Button Stuff
+        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);
+        const backText = this.add.text(0, 0, 'BACK',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '60px',
+        }).setOrigin(0.5, 0.7).setDepth(2).setAlpha(0);
+        //Container!
+        const containerBackButton = this.add.container(backButton.width/2, 600 - (backButton.height/2), [backButton, backText]).setDepth(2);
+        containerBackButton.setSize(backButton.width, backButton.height);
+        containerBackButton.setInteractive();
+        containerBackButton.on("pointerup", ()=>{
+            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+        });
 
         this.input.enabled = false;
         this.tweens.add({
@@ -64,7 +80,7 @@ export class LevelFourScene extends Phaser.Scene {
                                             duration: 1000, // Fade-out duration for the second image
                                             onComplete: () => { 
                                                 this.tweens.add({
-                                                    targets:[corrBtn, wBtn1, wBtn2, wBtn3],
+                                                    targets:[corrBtn, wBtn1, wBtn2, wBtn3, backButton, backText],
                                                     alpha: 1,
                                                     duration: 1000,
                                                 });
@@ -82,22 +98,6 @@ export class LevelFourScene extends Phaser.Scene {
             }
         });
 
-        //Back Button Stuff
-        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
-        const startText = this.add.text(0, 0, 'BACK',
-            {
-                fontFamily: 'BadComic-Regular',
-                color: '#D3D3D3',
-                fontSize: '60px',
-        }).setOrigin(0.5, 0.7).setDepth(2);
-
-        //Container!
-        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]).setDepth(2);
-        containerBackButton.setSize(backButton.width, backButton.height);
-        containerBackButton.setInteractive();
-        containerBackButton.on("pointerup", ()=>{
-            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
-        });
 
         //Stars on Click!
         effectOnClick(this);
