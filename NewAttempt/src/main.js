@@ -8,6 +8,7 @@ import { LevelOneScene } from './scenes/levelOne.js';
 import { wrongButton } from './buttonHelper.js';
 import { correctButton } from './buttonHelper.js';
 import { LevelTwoScene } from './scenes/levelTwo.js';
+import{ LevelThreeScene } from './scenes/levelThree.js';
 
 //This the main js file
 
@@ -34,6 +35,7 @@ game.scene.add(SCENE_KEYS.GAME_START_SCENE, GameStartScene);
 //levels
 game.scene.add(SCENE_KEYS.LEVELONE_SCENE, LevelOneScene);
 game.scene.add(SCENE_KEYS.LEVELTWO_SCENE, LevelTwoScene);
+game.scene.add(SCENE_KEYS.LEVELTHREE_SCENE, LevelThreeScene);
 
 //Starting the first one (preloader)
 game.scene.start(SCENE_KEYS.PRELOAD_SCENE);

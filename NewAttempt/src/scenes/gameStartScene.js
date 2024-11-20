@@ -28,9 +28,12 @@ export class GameStartScene extends Phaser.Scene {
 
         let levelOneBtn = this.add.image(160, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
         let levelTwoBtn = this.add.image(350, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelThreeBtn = this.add.image(540, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+
 
         levelOneBtn.setInteractive();
         levelTwoBtn.setInteractive();
+        levelThreeBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
@@ -38,6 +41,10 @@ export class GameStartScene extends Phaser.Scene {
 
         levelTwoBtn.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.LEVELTWO_SCENE);
+        })
+
+        levelThreeBtn.on("pointerup", ()=>{
+            this.scene.start(SCENE_KEYS.LEVELTHREE_SCENE);
         })
         
         //Cancel Button to go back to main menu
