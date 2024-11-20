@@ -21,14 +21,16 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
         .setInteractive()
         .setOrigin(0.5)
         .setScale(0.3,0.3)
-        .on('pointerdown', () => {correctButton.setTint(0xff0000).setAlpha(0.5)
+        .on('pointerdown', () => {
+            correctButton.setTint(0xff0000).setAlpha(0.5)
+            
             let correctText = scene.add.text(400,300,"Correct!", {
                 fontSize: "64px",
                 color:"#00ff00",
                 fontFamily: 'BadComic-Regular',
             }).setOrigin(0.5);
-
         scene.time.delayedCall(1500, ()=> {
+            scene.sound.stopAll();
             correctText.destroy();
             if (callback) {
                 callback(()=>{
@@ -36,12 +38,13 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
                 });
             } else {
                 scene.scene.start(nextScene);
-            }
+        }})
         })
-        });
+        return correctButton;
+    };
         
-    return correctButton;
-}
+  
+
 
 export function effectOnClick(scene) {
     const emitterStars = scene.add.particles(0, 0, 'star', {

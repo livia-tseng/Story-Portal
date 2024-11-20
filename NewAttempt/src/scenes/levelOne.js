@@ -87,9 +87,19 @@ export class LevelOneScene extends Phaser.Scene {
         wrongButton(this, 160, 500, 'samuelf');
         correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
             const trainarrive = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'trainarriving');
-            trainarrive.setOrigin(0.5).setDepth(1).play();
-            trainarrive.on('complete',done);
-        })
+            trainarrive.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            trainarrive.on('complete', ()=> {
+                this.tweens.add({
+                    targets: trainarrive,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        trainarrive.destroy();
+                        done();
+                    }
+                })
+            })
+        });
         wrongButton(this,480,500, 'samuelf');
         wrongButton(this,640,500,'samuelf');
     }
