@@ -22,6 +22,13 @@ export class LevelThreeScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('bgl3').getSourceImage().height;
         this.add.image(0,0, 'bgl3').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
+        //audio
+        let trainAudio = this.sound.add('lvl3audio', {
+            volume: 1.0,
+            loop: true,
+        });
+        trainAudio.play();
+
         // answer buttons
 
         correctButton(this, 525, 200, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
