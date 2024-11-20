@@ -60,7 +60,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.audio('lvl1audio1','./assets/audio/level1audio1.mp3'); //Level 1
 
         //video
-        this.load.video('trainarriving','./assets/trainarrive.mp4');
+        this.load.video('trainarriving','./assets/videos/trainarriving.mp4');
 
         //These are all free from this random website i have no idea which ones i clicked tbh
     }

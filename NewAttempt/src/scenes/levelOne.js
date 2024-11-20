@@ -26,11 +26,6 @@ export class LevelOneScene extends Phaser.Scene {
         let windowDark = this.add.image(400,300, 'windowDark').setOrigin(0.5).setScale(screenWidth, screenHeight).setDepth(0);
         //Light window
         let windowLight = this.add.image(0,0, 'windowLight').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0).setAlpha(0);
-        const sleep = this.add.text(400,100,'Level One', {
-                fontFamily: 'BadComic-Regular',
-                color: 'white',
-                fontSize: '50px',
-        }).setOrigin(0.5).setDepth(2);
 
 
         //Back Button Stuff
@@ -90,7 +85,25 @@ export class LevelOneScene extends Phaser.Scene {
 
         //answer buttons
         wrongButton(this, 160, 500, 'samuelf');
-        correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE);
+        correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
+            const trainarrive = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'trainarriving');
+            trainarrive.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);    
+            trainarrive.on('complete', ()=> {
+                this.tweens.add({
+                    targets: trainarrive,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        trainarrive.destroy();
+                        done();
+                    }
+                })
+            })
+        });
         wrongButton(this,480,500, 'samuelf');
         wrongButton(this,640,500,'samuelf');
     }
