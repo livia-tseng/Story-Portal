@@ -88,6 +88,10 @@ export class LevelOneScene extends Phaser.Scene {
         correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
             const trainarrive = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'trainarriving');
             trainarrive.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);    
             trainarrive.on('complete', ()=> {
                 this.tweens.add({
                     targets: trainarrive,
