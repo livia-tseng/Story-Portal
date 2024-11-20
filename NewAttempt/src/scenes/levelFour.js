@@ -60,13 +60,13 @@ export class LevelFourScene extends Phaser.Scene {
                 this.tweens.add({
                     targets: train2,
                     alpha: 1,      // Target alpha value
-                    duration: 1000,  // Duration of fade-in in ms
+                    duration: 800,  // Duration of fade-in in ms
                     delay: 250,
                     onComplete: () => {
                         this.tweens.add({
                             targets: train1,
                             alpha: 0,      // Target alpha value
-                            duration: 1000,  // Duration of fade-in in ms
+                            duration: 950,  // Duration of fade-in in ms
                             onComplete: () => {
                                 this.tweens.add({
                                     targets: train3,
