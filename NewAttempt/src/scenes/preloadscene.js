@@ -63,8 +63,6 @@ export class PreloadScene extends Phaser.Scene {
         this.load.video('trainarriving','./assets/videos/trainarriving.mp4');
         this.load.video('gettingontrain','./assets/videos/gettingontrain.mp4');
         this.load.video('tokyodrift','./assets/videos/tokyodrift.mp4');
-
-        //These are all free from this random website i have no idea which ones i clicked tbh
     }
     
     create() {
