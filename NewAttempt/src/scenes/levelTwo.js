@@ -1,5 +1,7 @@
 import Phaser from '../lib/phaser.js';
 import { SCENE_KEYS } from './sceneKeys.js';
+import { wrongButton } from '../buttonHelper.js';
+import { correctButton } from '../buttonHelper.js';
 
 //NEED TO IMPORT SCENE_KEYS AND MAIN.JS
 export class LevelTwoScene extends Phaser.Scene {
@@ -21,40 +23,12 @@ export class LevelTwoScene extends Phaser.Scene {
 
 
         //answer buttons
-        let buttonA = this.add.image(520, 80, 'jayden2').setOrigin(0.5).setScale(0.3,0.3).setDepth(1);
-        buttonA.setInteractive();
-        buttonA.on("pointerup", ()=> {
-            buttonA.setTint(0xFF0000).setAlpha(0.5)
-        })
-        let buttonB = this.add.image(680, 80, 'jayden2').setOrigin(0.5).setScale(0.3,0.3).setDepth(1);
-        buttonB.setInteractive();
-        buttonB.on("pointerup", ()=> {
-            buttonB.setTint(0xFF0000).setAlpha(0.5)
-        })
-
-        //Correct Answer
-        let buttonC = this.add.image(520, 200, 'jayden2').setOrigin(0.5).setScale(0.3,0.3).setDepth(1);
-        buttonC.setInteractive();
-        buttonC.on("pointerup", ()=> {
-            buttonC.setTint(0x00FF00).setAlpha(0.5)
-            let correctText = this.add.text(400,300,"Correct!", {
-                fontSize: "64px",
-                color:"#00ff00",
-                fontFamily: 'BadComic-Regular',
-            }).setOrigin(0.5);
-            this.time.delayedCall(1500, ()=> {
-                correctText.destroy();
-                this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
-            })
-
-        })
         
-
-        let buttonD = this.add.image(680, 200, 'jayden2').setOrigin(0.5).setScale(0.3,0.3).setDepth(1);
-        buttonD.setInteractive();
-        buttonD.on("pointerup", ()=> {
-            buttonD.setTint(0xFF0000).setAlpha(0.5)
-        })
+        wrongButton(this, 520, 80, 'jayden2');
+        correctButton(this,520,200,'jayden2',SCENE_KEYS.MAIN_MENU_SCENE);
+        wrongButton(this,680,80, 'jayden2');
+        wrongButton(this,680,200,'jayden2');
+        
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
