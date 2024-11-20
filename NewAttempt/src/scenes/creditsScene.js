@@ -88,7 +88,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
@@ -96,7 +96,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
@@ -104,7 +104,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
@@ -112,7 +112,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
@@ -120,7 +120,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
@@ -128,7 +128,7 @@ export class CreditsScene extends Phaser.Scene {
             speed: { min: 200, max: 300 },
             lifespan: 1000,
             scale: { start: 0.5, end: 0.25 },
-            alpha: { start: 0.8, end: 0.8 },
+            alpha: { start: 0.8, end: 0.7 },
             gravityY: -500
         });
 
