@@ -1,6 +1,8 @@
 import Phaser from '../lib/phaser.js';
 import { SCENE_KEYS } from './sceneKeys.js';
 import { effectOnClick } from '../buttonHelper.js';
+import { wrongButton } from '../buttonHelper.js';
+import { correctButton } from '../buttonHelper.js';
 
 //NEED TO IMPORT SCENE_KEYS AND MAIN.JS
 export class LevelFourScene extends Phaser.Scene {
@@ -20,7 +22,12 @@ export class LevelFourScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('bgl4').getSourceImage().height;
         this.add.image(0,0, 'bgl4').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
-        
+        // answer buttons
+
+        correctButton(this, 100, 200, 'ameen4',SCENE_KEYS.GAME_START_SCENE);
+        wrongButton(this,220,200,'ameen4');
+        wrongButton(this,100,320, 'ameen4');
+        wrongButton(this,220,320,'ameen4');
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
