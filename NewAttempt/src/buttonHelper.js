@@ -9,7 +9,9 @@ export function wrongButton(scene,x,y,assetKey) {
                 color:"#FF0000",
                 fontFamily: 'BadComic-Regular',
             }).setOrigin(0.5);
-        
+            scene.time.delayedCall(1500, ()=> {
+                wrongText.destroy();
+            })
         })
     return wrongButton;
 }

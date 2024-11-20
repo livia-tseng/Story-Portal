@@ -45,18 +45,24 @@ export class LevelOneScene extends Phaser.Scene {
         const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]);
         containerBackButton.setSize(backButton.width, backButton.height);
         containerBackButton.setInteractive();
-
-        //Stars on Click!
-        effectOnClick(this);
-
         containerBackButton.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         })
 
-        this.input.once("pointerdown", () => {
-            this.input.enabled = false;
+        //Stars on Click!
+        effectOnClick(this);
+        this.cameraShakeTimer = this.time.addEvent({
+            delay: 500, // Shake every 100ms
+            callback: this.shakeCamera,
+            callbackScope: this,
+            loop: true // Repeat indefinitely until stopped
+        });
 
+
+        this.input.once("pointerdown", () => {
+            this.cameraShakeTimer.remove();
             this.cameras.main.shake(2000, 0.05);
+            this.input.enabled = false;
             this.tweens.add({
                 targets: windowDark,        // The image to tween
                 alpha: 1,              // Target alpha value
@@ -76,12 +82,16 @@ export class LevelOneScene extends Phaser.Scene {
         });
 
         //answer buttons
-
         wrongButton(this, 160, 500, 'samuelf');
         correctButton(this,320,500,'samuelf',SCENE_KEYS.LEVELTWO_SCENE);
         wrongButton(this,480,500, 'samuelf');
         wrongButton(this,640,500,'samuelf');
-}
+    }
+
+    shakeCamera() {
+        // Camera shake with light intensity
+        this.cameras.main.shake(100, 0.008);
+    }
     
 }
 
