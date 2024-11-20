@@ -31,7 +31,7 @@ export class GameStartScene extends Phaser.Scene {
         let levelTwoBtn = this.add.image(305, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelThreeBtn = this.add.image(495, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelFourBtn = this.add.image(685, 200, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
-        
+
 
         levelOneBtn.setInteractive();
         levelTwoBtn.setInteractive();

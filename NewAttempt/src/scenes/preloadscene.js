@@ -43,6 +43,8 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('star', './assets/images/star.png');
         this.load.image('heart', './assets/images/pinkheart.png');
         
+        this.load.audio('ameen_intro', './assets/ameens_intro.mp3');
+
         //These are all free from this random website i have no idea which ones i clicked tbh
     }
     

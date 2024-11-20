@@ -76,6 +76,13 @@ export class CreditsScene extends Phaser.Scene {
             fontSize: '70px'
         }).setOrigin(0.5).setDepth(1);
 
+        this.ameenIntro = this.sound.add('ameen_intro', {
+            volume: 1.0,
+            loop: true,
+        });
+
+        this.ameenIntro.play();
+
         //Emitters purely for research purposes
         const emitter1 = this.add.particles(750, 440, 'heart', {
             speed: { min: 200, max: 300 },
