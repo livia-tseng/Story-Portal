@@ -43,6 +43,7 @@ export class LevelThreeScene extends Phaser.Scene {
                 })
             })
         });
+
         wrongButton(this,645,200,'jayden3');
         wrongButton(this,525,320, 'jayden3');
         wrongButton(this,645,320,'jayden3');
