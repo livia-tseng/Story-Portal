@@ -5,10 +5,11 @@ import { MainMenuScene } from './scenes/mainMenuScene.js';
 import { CreditsScene } from './scenes/creditsScene.js';
 import { GameStartScene } from './scenes/gameStartScene.js';
 import { LevelOneScene } from './scenes/levelOne.js';
-import { wrongButton } from './buttonHelper.js';
-import { correctButton } from './buttonHelper.js';
 import { LevelTwoScene } from './scenes/levelTwo.js';
 import{ LevelThreeScene } from './scenes/levelThree.js';
+import { LevelFourScene } from './scenes/levelFour.js';
+import { wrongButton } from './buttonHelper.js';
+import { correctButton } from './buttonHelper.js';
 
 //This the main js file
 
@@ -36,6 +37,7 @@ game.scene.add(SCENE_KEYS.GAME_START_SCENE, GameStartScene);
 game.scene.add(SCENE_KEYS.LEVELONE_SCENE, LevelOneScene);
 game.scene.add(SCENE_KEYS.LEVELTWO_SCENE, LevelTwoScene);
 game.scene.add(SCENE_KEYS.LEVELTHREE_SCENE, LevelThreeScene);
+game.scene.add(SCENE_KEYS.LEVELFOUR_SCENE, LevelFourScene);
 
 //Starting the first one (preloader)
 game.scene.start(SCENE_KEYS.PRELOAD_SCENE);

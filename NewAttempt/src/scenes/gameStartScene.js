@@ -17,7 +17,7 @@ export class GameStartScene extends Phaser.Scene {
         //Background
         const screenWidth = this.scale.width / this.textures.get('background').getSourceImage().width;
         const screenHeight = this.scale.height / this.textures.get('background').getSourceImage().height;
-        const newScale = Math.max(screenWidth, screenHeight)
+        const newScale = Math.max(screenWidth, screenHeight);
         this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
         this.add.text(400, 80, 'Level Select', {
@@ -29,11 +29,13 @@ export class GameStartScene extends Phaser.Scene {
         let levelOneBtn = this.add.image(160, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
         let levelTwoBtn = this.add.image(350, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelThreeBtn = this.add.image(540, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelFourBtn = this.add.image(730, 200, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
 
 
         levelOneBtn.setInteractive();
         levelTwoBtn.setInteractive();
         levelThreeBtn.setInteractive();
+        levelFourBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
@@ -45,6 +47,10 @@ export class GameStartScene extends Phaser.Scene {
 
         levelThreeBtn.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.LEVELTHREE_SCENE);
+        })
+
+        levelFourBtn.on("pointerup", ()=>{
+            this.scene.start(SCENE_KEYS.LEVELFOUR_SCENE);
         })
         
         //Cancel Button to go back to main menu
