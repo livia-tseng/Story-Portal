@@ -30,10 +30,10 @@ export class LevelFourScene extends Phaser.Scene {
         this.add.image(0,0, 'snow').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
 
         // answer buttons
-        let corrBtn = correctButton(this, 200, 50, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(3).setAlpha(0);
-        let wBtn1 = wrongButton(this,320,50,'ameen4').setDepth(3).setAlpha(0);
-        let wBtn2 = wrongButton(this,200,170, 'ameen4').setDepth(3).setAlpha(0);
-        let wBtn3 = wrongButton(this,320,170,'ameen4').setDepth(3).setAlpha(0);
+        let corrBtn = correctButton(this, 200, 50, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
+        let wBtn1 = wrongButton(this,320,50,'ameen4').setDepth(2).setAlpha(0);
+        let wBtn2 = wrongButton(this,200,170, 'ameen4').setDepth(2).setAlpha(0);
+        let wBtn3 = wrongButton(this,320,170,'ameen4').setDepth(2).setAlpha(0);
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);
