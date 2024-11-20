@@ -53,7 +53,7 @@ export class LevelOneScene extends Phaser.Scene {
             }).setOrigin(0.5);
             this.time.delayedCall(1500, ()=> {
                 correctText.destroy();
-                this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+                this.scene.start(SCENE_KEYS.LEVELTWO_SCENE);
             })
 
         })
