@@ -25,11 +25,11 @@ export class LevelTwoScene extends Phaser.Scene {
         //answer buttons
         
         wrongButton(this, 520, 80, 'jayden2');
-        correctButton(this,520,200,'jayden2',SCENE_KEYS.MAIN_MENU_SCENE);
+        correctButton(this,520,200,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE);
         wrongButton(this,680,80, 'jayden2');
         wrongButton(this,680,200,'jayden2');
         
-
+        
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
         const startText = this.add.text(0, 0, 'BACK',
