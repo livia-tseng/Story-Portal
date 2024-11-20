@@ -27,12 +27,17 @@ export class GameStartScene extends Phaser.Scene {
         }).setOrigin(0.5, 0.5).setDepth(1);
 
         let levelOneBtn = this.add.image(160, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
+        let levelTwoBtn = this.add.image(350, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
 
         levelOneBtn.setInteractive();
+        levelTwoBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
-            console.log("Credits Button Pressed");
             this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
+        })
+
+        levelTwoBtn.on("pointerup", ()=>{
+            this.scene.start(SCENE_KEYS.LEVELTWO_SCENE);
         })
         
         //Cancel Button to go back to main menu

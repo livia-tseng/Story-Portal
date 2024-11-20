@@ -27,7 +27,7 @@ export class MainMenuScene extends Phaser.Scene {
 
 //When adding IMAGES, the x, y coords are defaulted to the middle of the image
 //If (0, 0), then the center of the image will be in the top left corner!
-//.setOrigin(0) makes it so the origin is now at thetop left corner of the image
+//.setOrigin(0) makes it so the origin is now at the top left corner of the image
 
         //Title Text
         const titleText = this.add.text(120, 200, 'The Polar Express', {
