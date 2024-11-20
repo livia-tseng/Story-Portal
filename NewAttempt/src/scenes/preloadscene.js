@@ -33,6 +33,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('samuelf','./assets/images/samuelf.png');
         this.load.image('windowDark', './assets/images/1-windowDark.png');
         this.load.image('windowLight', './assets/images/1-windowLight.png');
+        this.load.image('snowflake', './assets/images/snowflake.png');
 
         //Level 4 stuff
         this.load.image('ameen4', './assets/images/ameen4.jpg');

@@ -47,7 +47,7 @@ export class LevelOneScene extends Phaser.Scene {
 
         //Stars on Click!
         effectOnClick(this);
-        
+
         this.cameraShakeTimer = this.time.addEvent({
             delay: 500, // Shake every 100ms
             callback: this.shakeCamera,
@@ -78,7 +78,7 @@ export class LevelOneScene extends Phaser.Scene {
                         duration: 1000,  // Duration of fade-in in ms
                         onComplete: () => {
                             this.tweens.add({
-                                targets: [wb1, corrB, wb2, wb3, backButton, backText],
+                                targets: [wb1, corrB, wb2, wb3, backButton, backText, question],
                                 alpha: 1,
                                 duration: 1000,
                             });
@@ -113,6 +113,15 @@ export class LevelOneScene extends Phaser.Scene {
         }).setAlpha(0);
         let wb2 = wrongButton(this,480,500, 'samuelf').setAlpha(0);
         let wb3 = wrongButton(this,640,500,'samuelf').setAlpha(0);
+
+        let question = this.add.text(780, 80, 'Question Here!',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '40px',
+        }).setOrigin(1, 0).setAlpha(0);
+        question.setAngle(2.5);
+        question.setScale(1,0.8);
     }
 
     shakeCamera() {
