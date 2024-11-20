@@ -25,10 +25,29 @@ export class LevelTwoScene extends Phaser.Scene {
         //answer buttons
         
         wrongButton(this, 520, 80, 'jayden2');
-        correctButton(this,520,200,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE);
+        correctButton(this,520,200,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
+            const getOnTrain = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'gettingontrain');
+            getOnTrain.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);    
+            getOnTrain.on('complete', ()=> {
+                this.tweens.add({
+                    targets: getOnTrain,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        getOnTrain.destroy();
+                        done();
+                    }
+                })
+            })
+        });
+        ;
         wrongButton(this,680,80, 'jayden2');
         wrongButton(this,680,200,'jayden2');
-        
+
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
