@@ -37,15 +37,15 @@ export function correctButton(scene,x,y,assetKey,nextScene) {
 export function effectOnClick(scene) {
     const emitterStars = scene.add.particles(0, 0, 'star', {
         lifespan: 400,
-        speed: { min: 150, max: 200 },
+        speed: { min: 150, max: 150 },
         alpha: { start: 1, end: 0.1 },
-        rotate: { start: 0, end: 360 },
+        rotate: { start: 0, end: 180 },
         emitting: false
     });
     emitterStars.setDepth(2);
 
     scene.input.on('pointerdown', pointer => {
-        emitterStars.emitParticleAt(pointer.worldX, pointer.worldY, 25);
+        emitterStars.emitParticleAt(pointer.worldX, pointer.worldY, 30);
     });
 
     return emitterStars;
