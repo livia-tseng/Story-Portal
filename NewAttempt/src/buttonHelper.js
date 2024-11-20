@@ -9,7 +9,7 @@ export function wrongButton(scene,x,y,assetKey) {
                 fontSize: "64px",
                 color:"#FF0000",
                 fontFamily: 'BadComic-Regular',
-            }).setOrigin(0.5);
+            }).setOrigin(0.5).setDepth(2);
             scene.time.delayedCall(1500, ()=> {
                 wrongText.destroy();
                 scene.input.enabled = true;
@@ -30,7 +30,7 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
                 fontSize: "64px",
                 color:"#00ff00",
                 fontFamily: 'BadComic-Regular',
-            }).setOrigin(0.5);
+            }).setOrigin(0.5).setDepth(2);
         scene.time.delayedCall(1500, ()=> {
             scene.sound.stopAll();
             correctText.destroy();
