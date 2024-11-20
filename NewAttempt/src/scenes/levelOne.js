@@ -1,5 +1,7 @@
 import Phaser from '../lib/phaser.js';
 import { SCENE_KEYS } from './sceneKeys.js';
+import { wrongButton } from '../buttonHelper.js';
+import { correctButton } from '../buttonHelper.js';
 
 export class LevelOneScene extends Phaser.Scene {
     constructor() {
@@ -37,36 +39,11 @@ export class LevelOneScene extends Phaser.Scene {
         leveloneText.setScale(2,1); // skew
 
         //answer buttons
-        let buttonA = this.add.image(160, 500, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
-        buttonA.setInteractive();
-        buttonA.on("pointerup", ()=> {
-            buttonA.setTint(0xFF0000).setAlpha(0.5)
-        })
-        let buttonB = this.add.image(320, 500, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
-        buttonB.setInteractive();
-        buttonB.on("pointerup", ()=> {
-            buttonB.setTint(0x00FF00).setAlpha(0.5)
-            let correctText = this.add.text(400,300,"Correct!", {
-                fontSize: "64px",
-                color:"#00ff00",
-                fontFamily: 'BadComic-Regular',
-            }).setOrigin(0.5);
-            this.time.delayedCall(1500, ()=> {
-                correctText.destroy();
-                this.scene.start(SCENE_KEYS.LEVELTWO_SCENE);
-            })
 
-        })
-        let buttonC = this.add.image(480, 500, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
-        buttonC.setInteractive();
-        buttonC.on("pointerup", ()=> {
-            buttonC.setTint(0xFF0000).setAlpha(0.5)
-        })
-        let buttonD = this.add.image(640, 500, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
-        buttonD.setInteractive();
-        buttonD.on("pointerup", ()=> {
-            buttonD.setTint(0xFF0000).setAlpha(0.5)
-        })
+        wrongButton(this, 160, 500, 'samuelf');
+        correctButton(this,320,500,'samuelf',SCENE_KEYS.LEVELTWO_SCENE);
+        wrongButton(this,480,500, 'samuelf');
+        wrongButton(this,640,500,'samuelf');
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);

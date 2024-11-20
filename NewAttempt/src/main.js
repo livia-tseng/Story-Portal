@@ -5,10 +5,12 @@ import { MainMenuScene } from './scenes/mainMenuScene.js';
 import { CreditsScene } from './scenes/creditsScene.js';
 import { GameStartScene } from './scenes/gameStartScene.js';
 import { LevelOneScene } from './scenes/levelOne.js';
+import { wrongButton } from './buttonHelper.js';
+import { correctButton } from './buttonHelper.js';
 
 //This the main js file
 
-//This how u initialize game
+//This how u initialize game        
 const game = new Phaser.Game({
     type: Phaser.CANVAS, //Not sure what this does tbh but apparently it just works most of the time
     pixelArt: false, //Dude in the video did this, if we do pixel art then this setting matters
