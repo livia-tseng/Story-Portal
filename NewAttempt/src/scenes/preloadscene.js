@@ -51,7 +51,8 @@ export class PreloadScene extends Phaser.Scene {
         this.load.audio('ameen_intro', './assets/audio/ameens_intro.mp3'); //Credits
         this.load.audio('lvl1audio1','./assets/audio/level1audio1.mp3'); //Level 1
 
-
+        //video
+        this.load.video('trainarriving','./assets/trainarrive.mp4');
 
         //These are all free from this random website i have no idea which ones i clicked tbh
     }
