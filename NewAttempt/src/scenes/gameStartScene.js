@@ -31,7 +31,7 @@ export class GameStartScene extends Phaser.Scene {
         levelOneBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
-            console.log("Credits Button Pressed");
+            console.log("Level One Button Pressed");
             this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
         })
         
