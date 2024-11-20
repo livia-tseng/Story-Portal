@@ -16,7 +16,7 @@ export function wrongButton(scene,x,y,assetKey) {
     return wrongButton;
 }
 
-export function correctButton(scene,x,y,assetKey,nextScene) {
+export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
     const correctButton = scene.add.sprite(x,y,assetKey)
         .setInteractive()
         .setOrigin(0.5)
@@ -27,11 +27,18 @@ export function correctButton(scene,x,y,assetKey,nextScene) {
                 color:"#00ff00",
                 fontFamily: 'BadComic-Regular',
             }).setOrigin(0.5);
+
         scene.time.delayedCall(1500, ()=> {
             correctText.destroy();
-            scene.scene.start(nextScene);
+            if (callback) {
+                callback(()=>{
+                    scene.scene.start(nextScene);
+                });
+            } else {
+                scene.scene.start(nextScene);
+            }
         })
-        })
+        });
         
     return correctButton;
 }
