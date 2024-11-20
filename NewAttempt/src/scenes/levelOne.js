@@ -82,9 +82,6 @@ export class LevelOneScene extends Phaser.Scene {
                         onComplete: () => {
                             // Re-enable input after animations are complete
                             this.input.enabled = true;
-                            if (trainLevel1) {
-                                trainLevel1.stop();
-                            }
                         }
                     });
                 }
@@ -93,7 +90,7 @@ export class LevelOneScene extends Phaser.Scene {
 
         //answer buttons
         wrongButton(this, 160, 500, 'samuelf');
-        correctButton(this,320,500,'samuelf',SCENE_KEYS.LEVELTWO_SCENE);
+        correctButton(this,320,500,'samuelf', SCENE_KEYS.LEVELTWO_SCENE);
         wrongButton(this,480,500, 'samuelf');
         wrongButton(this,640,500,'samuelf');
     }
