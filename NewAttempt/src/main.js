@@ -5,6 +5,7 @@ import { MainMenuScene } from './scenes/mainMenuScene.js';
 import { CreditsScene } from './scenes/creditsScene.js';
 import { GameStartScene } from './scenes/gameStartScene.js';
 import { LevelOneScene } from './scenes/levelOne.js';
+import { LevelTwoScene } from './scenes/levelTwo.js';
 
 //This the main js file
 
@@ -30,6 +31,7 @@ game.scene.add(SCENE_KEYS.GAME_START_SCENE, GameStartScene);
 
 //levels
 game.scene.add(SCENE_KEYS.LEVELONE_SCENE, LevelOneScene);
+game.scene.add(SCENE_KEYS.LEVELTWO_SCENE, LevelTwoScene);
 
 //Starting the first one (preloader)
 game.scene.start(SCENE_KEYS.PRELOAD_SCENE);
