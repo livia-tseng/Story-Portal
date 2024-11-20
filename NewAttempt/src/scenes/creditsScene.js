@@ -23,7 +23,7 @@ export class CreditsScene extends Phaser.Scene {
         //Credits!!!
         this.add.text(400, 80, 'CREDITS', {
             fontFamily: 'BadComic-Regular',
-            color: 'white',
+            color: '#900C3F',
             fontSize: '70px'
         }).setOrigin(0.5, 0.5).setDepth(1);
 
