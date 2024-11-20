@@ -5,12 +5,9 @@ import { MainMenuScene } from './scenes/mainMenuScene.js';
 import { CreditsScene } from './scenes/creditsScene.js';
 import { GameStartScene } from './scenes/gameStartScene.js';
 import { LevelOneScene } from './scenes/levelOne.js';
-<<<<<<< HEAD
 import { wrongButton } from './buttonHelper.js';
 import { correctButton } from './buttonHelper.js';
-=======
 import { LevelTwoScene } from './scenes/levelTwo.js';
->>>>>>> 687387838e64e08be9c6e53d846f550c38e5bb42
 
 //This the main js file
 
