@@ -44,9 +44,8 @@ export class LevelTwoScene extends Phaser.Scene {
             }).setOrigin(0.5);
             this.time.delayedCall(1500, ()=> {
                 correctText.destroy();
-                this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
+                this.scene.start(SCENE_KEYS.LEVELTHREE_SCENE);
             })
-
         })
         
 
