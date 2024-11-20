@@ -22,7 +22,6 @@ export class LevelTwoScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('backgroundl2').getSourceImage().height;
         this.add.image(0,0, 'backgroundl2').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
-
         //answer buttons
         
         wrongButton(this, 520, 80, 'jayden2');
