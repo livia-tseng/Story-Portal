@@ -24,7 +24,25 @@ export class LevelThreeScene extends Phaser.Scene {
 
         // answer buttons
 
-        correctButton(this, 525, 200, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE);
+        correctButton(this, 525, 200, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
+            const tokyoDrift = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'tokyodrift');
+            tokyoDrift.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);    
+            tokyoDrift.on('complete', ()=> {
+                this.tweens.add({
+                    targets: tokyoDrift,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        tokyoDrift.destroy();
+                        done();
+                    }
+                })
+            })
+        });
         wrongButton(this,645,200,'jayden3');
         wrongButton(this,525,320, 'jayden3');
         wrongButton(this,645,320,'jayden3');
