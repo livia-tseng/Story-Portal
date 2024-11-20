@@ -18,26 +18,62 @@ export class LevelOneScene extends Phaser.Scene {
 
 
     create(){
-        const screenWidth = this.scale.width / this.textures.get('polarkidsleeping').getSourceImage().width;
-        const screenHeight = this.scale.height / this.textures.get('polarkidsleeping').getSourceImage().height;
-        
-        this.add.image(0,0,'polarkidsleeping').setOrigin(0).setScale(screenWidth,screenHeight).setDepth(0);
+        const screenWidth = 800 / this.textures.get('bgl1').getSourceImage().width;
+        const screenHeight = 600 / this.textures.get('bgl1').getSourceImage().height;
+        this.add.image(0,0,'bgl1').setOrigin(0).setScale(screenWidth,screenHeight).setDepth(0);
 
-        const sleep = this.add.text(400,100,'level one', {
+        //Dark window
+        let windowDark = this.add.image(400,300, 'windowDark').setOrigin(0.5).setScale(screenWidth, screenHeight).setDepth(0);
+        //Light window
+        let windowLight = this.add.image(0,0, 'windowLight').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0).setAlpha(0);
+        const sleep = this.add.text(400,100,'Level One', {
                 fontFamily: 'BadComic-Regular',
                 color: 'white',
                 fontSize: '50px',
         }).setOrigin(0.5).setDepth(2);
 
-        const leveloneText = this.add.renderTexture(500,100,400,200).setOrigin(0.5).setDepth(2);
-        leveloneText.draw(this.add.text(0,0, 'Level One', {
-            fontFamily: 'BadComic-Regular',
-            color: 'white',
-            fontSize: '50px'
-        }));
 
-        leveloneText.setAngle(-30); // rotate angle
-        leveloneText.setScale(2,1); // skew
+        //Back Button Stuff
+        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
+        const startText = this.add.text(0, 0, 'BACK',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '60px',
+        }).setOrigin(0.5, 0.7).setDepth(3);
+        //Container!
+        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]);
+        containerBackButton.setSize(backButton.width, backButton.height);
+        containerBackButton.setInteractive();
+
+        //Stars on Click!
+        effectOnClick(this);
+
+        containerBackButton.on("pointerup", ()=>{
+            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+        })
+
+        this.input.once("pointerdown", () => {
+            this.input.enabled = false;
+
+            this.cameras.main.shake(2000, 0.05);
+            this.tweens.add({
+                targets: windowDark,        // The image to tween
+                alpha: 1,              // Target alpha value
+                duration: 1000,         // Duration of fade-out in ms
+                onComplete: () => {
+                    this.tweens.add({
+                        targets: windowLight,
+                        alpha: 1,      // Target alpha value
+                        duration: 1000,  // Duration of fade-in in ms
+                        onComplete: () => {
+                            // Re-enable input after animations are complete
+                            this.input.enabled = true;
+                        }
+                    });
+                }
+            });
+        });
 
         //answer buttons
 
@@ -45,30 +81,6 @@ export class LevelOneScene extends Phaser.Scene {
         correctButton(this,320,500,'samuelf',SCENE_KEYS.LEVELTWO_SCENE);
         wrongButton(this,480,500, 'samuelf');
         wrongButton(this,640,500,'samuelf');
-
-        //Back Button Stuff
-        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
-        const startText = this.add.text(0, 0, 'BACK',
-            {
-                fontFamily: 'BadComic-Regular',
-                color: '#D3D3D3',
-                fontSize: '60px',
-        }).setOrigin(0.5, 0.7).setDepth(2);
-        //Container!
-        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]);
-        containerBackButton.setSize(backButton.width, backButton.height);
-        containerBackButton.setInteractive();
-
-        containerBackButton.on("pointerup", ()=>{
-            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
-        })
-
-        //this.input.on("pointerdown", () => {
-        //    this.cameras.main.shake(2000, 0.05);
-        //});
-        
-        //Stars on Click!
-        effectOnClick(this);
 }
     
 }
