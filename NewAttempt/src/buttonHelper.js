@@ -24,6 +24,7 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
         .setOrigin(0.5)
         .setScale(0.3,0.3)
         .on('pointerdown', () => {
+            scene.input.enabled = false;
             correctButton.setTint(0xff0000).setAlpha(0.5)
             
             let correctText = scene.add.text(400,300,"Correct!", {
@@ -36,9 +37,11 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
             correctText.destroy();
             if (callback) {
                 callback(()=>{
+                    scene.input.enabled = false;
                     scene.scene.start(nextScene);
                 });
             } else {
+                scene.input.enabled = false;
                 scene.scene.start(nextScene);
         }})
         })

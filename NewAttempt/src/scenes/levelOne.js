@@ -47,7 +47,7 @@ export class LevelOneScene extends Phaser.Scene {
 
         //Stars on Click!
         effectOnClick(this);
-
+        
         this.cameraShakeTimer = this.time.addEvent({
             delay: 500, // Shake every 100ms
             callback: this.shakeCamera,
