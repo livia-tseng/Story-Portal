@@ -30,6 +30,7 @@ export function correctButton(scene,x,y,assetKey,nextScene) {
         scene.time.delayedCall(1500, ()=> {
             correctText.destroy();
             scene.scene.start(nextScene);
+            scene.sound.stopAll();
         })
         })
         
