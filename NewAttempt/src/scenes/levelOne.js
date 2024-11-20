@@ -2,6 +2,7 @@ import Phaser from '../lib/phaser.js';
 import { SCENE_KEYS } from './sceneKeys.js';
 import { wrongButton } from '../buttonHelper.js';
 import { correctButton } from '../buttonHelper.js';
+import { effectOnClick } from '../buttonHelper.js';
 
 export class LevelOneScene extends Phaser.Scene {
     constructor() {
@@ -66,6 +67,8 @@ export class LevelOneScene extends Phaser.Scene {
         //    this.cameras.main.shake(2000, 0.05);
         //});
         
+        //Stars on Click!
+        effectOnClick(this);
 }
     
 }

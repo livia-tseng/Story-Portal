@@ -1,5 +1,6 @@
 import Phaser from '../lib/phaser.js';
 import { SCENE_KEYS } from './sceneKeys.js';
+import { effectOnClick } from '../buttonHelper.js';
 
 //NEED TO IMPORT SCENE_KEYS AND MAIN.JS
 export class LevelFourScene extends Phaser.Scene {
@@ -38,5 +39,8 @@ export class LevelFourScene extends Phaser.Scene {
         containerBackButton.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
+
+        //Stars on Click!
+        effectOnClick(this);
     }
 }

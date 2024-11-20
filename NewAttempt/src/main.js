@@ -10,6 +10,7 @@ import{ LevelThreeScene } from './scenes/levelThree.js';
 import { LevelFourScene } from './scenes/levelFour.js';
 import { wrongButton } from './buttonHelper.js';
 import { correctButton } from './buttonHelper.js';
+import { effectOnClick } from './buttonHelper.js';
 
 //This the main js file
 
