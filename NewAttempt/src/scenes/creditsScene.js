@@ -138,6 +138,9 @@ export class CreditsScene extends Phaser.Scene {
         exitBtn.setInteractive();
         exitBtn.on("pointerup", ()=>{
             console.log("Exit Button Pressed");
+            if (ameenIntro) {
+                ameenIntro.stop();
+            }
             this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
         })
 
