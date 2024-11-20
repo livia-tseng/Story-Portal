@@ -48,8 +48,8 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('heart', './assets/images/pinkheart.png');
         
         //Audio
-        this.load.audio('ameen_intro', './assets/ameens_intro.mp3'); //Credits
-        this.load.audio('lvl1audio1','./assets/level1audio1.mp3');
+        this.load.audio('ameen_intro', './assets/audio/ameens_intro.mp3'); //Credits
+        this.load.audio('lvl1audio1','./assets/audio/level1audio1.mp3'); //Level 1
 
 
 

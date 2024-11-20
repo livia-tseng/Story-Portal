@@ -58,6 +58,13 @@ export class LevelOneScene extends Phaser.Scene {
             loop: true // Repeat indefinitely until stopped
         });
 
+        //Audio
+        let trainLevel1 = this.sound.add('lvl1audio1', {
+            volume: 1.0,
+            loop: true,
+        });
+        trainLevel1.play();
+
 
         this.input.once("pointerdown", () => {
             this.cameraShakeTimer.remove();
@@ -75,6 +82,9 @@ export class LevelOneScene extends Phaser.Scene {
                         onComplete: () => {
                             // Re-enable input after animations are complete
                             this.input.enabled = true;
+                            if (trainLevel1) {
+                                trainLevel1.stop();
+                            }
                         }
                     });
                 }
