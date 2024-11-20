@@ -26,16 +26,24 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl1','./assets/images/1-Background.png');
         this.load.image('backgroundl2', './assets/images/level2bg.png');
         this.load.image('bgl3', './assets/images/level3bg.png');
-        this.load.image('bgl4', './assets/images/level4bg.png');
+        this.load.image('bgl4', './assets/images/4-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
+
         //Level 1 stuff
         this.load.image('samuelf','./assets/images/samuelf.png');
         this.load.image('windowDark', './assets/images/1-windowDark.png');
         this.load.image('windowLight', './assets/images/1-windowLight.png');
 
+        //Level 4 stuff
+        this.load.image('ameen4', './assets/images/ameen4.jpg');
+        this.load.image('snow', './assets/images/4-Snow.png');
+        this.load.image('train1', './assets/images/4-Train1.png');
+        this.load.image('train2', './assets/images/4-Train2.png');
+        this.load.image('train3', './assets/images/4-Train3.png');
+
         this.load.image('jayden2', './assets/images/jayden2.jpg');
         this.load.image('jayden3', './assets/images/jayden3.jpg');
-        this.load.image('ameen4', './assets/images/ameen4.jpg');
+        
         this.load.image('startBtn', './assets/images/TextBTN_Big.png');
         this.load.image('creditsBtn', './assets/images/Exclamation_Yellow.png');
         this.load.image('grayExcl', './assets/images/Exclamation_Gray.png');
