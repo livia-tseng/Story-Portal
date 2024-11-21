@@ -22,6 +22,15 @@ export class LevelTwoScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('backgroundl2').getSourceImage().height;
         this.add.image(0,0, 'backgroundl2').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
+
+        //audio
+        let snowAmbience = this.sound.add('lvl2audio', {
+            volume: 1.0,
+            loop: true,
+        });
+        snowAmbience.play();
+
+
         //Snow!
         const snow = this.add.particles(0, 0, 'snowflake', {
             x: [100, 200, 300, 400, 500, 600, 700, 800],
