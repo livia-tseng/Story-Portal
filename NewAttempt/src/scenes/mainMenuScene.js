@@ -31,22 +31,22 @@ export class MainMenuScene extends Phaser.Scene {
 //.setOrigin(0) makes it so the origin is now at the top left corner of the image
 
         //Title Text
-        const titleText = this.add.text(120, 200, 'The Polar Express', {
-            fontFamily: 'BadComic-Regular',
+        const titleText = this.add.text(400, 300, 'The Polar Express', {
+            fontFamily: 'Gaudy',
             color: '#efe157',
             fontSize: '70px'
-        }).setDepth(1);
+        }).setOrigin(0.5).setDepth(1);
         
         //Start Text
-        const startText = this.add.text(305, 405, 'START',
+        const startText = this.add.text(310, 435, 'START',
             {
-                fontFamily: 'BadComic-Regular',
+                fontFamily: 'Gaudy',
                 color: '#D3D3D3',
                 fontSize: '60px',
         }).setDepth(2);
 
         //Start Game Button
-        let startButton = this.add.image(400, 450, 'startBtn').setDepth(1);
+        let startButton = this.add.image(400, 480, 'startBtn').setDepth(1);
 
         //Credits Button
         let creditsButton =  this.add.image(800, 0, 'creditsBtn').setOrigin(1, 0);

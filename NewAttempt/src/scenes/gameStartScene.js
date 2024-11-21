@@ -22,7 +22,7 @@ export class GameStartScene extends Phaser.Scene {
         this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
         this.add.text(400, 80, 'Level Select', {
-            fontFamily: 'BadComic-Regular',
+            fontFamily: 'Goudy',
             color: '#837d43',
             fontSize: '60px'
         }).setOrigin(0.5, 0.5).setDepth(1);

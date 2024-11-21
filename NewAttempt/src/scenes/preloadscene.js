@@ -74,7 +74,7 @@ export class PreloadScene extends Phaser.Scene {
         //As it turns out, it was only not working because I didn't restart the code!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! HAHAHAHAHAHAHAHHA
         WebFontLoader.default.load({ //Loading the font
            custom: { //It is a custom font (meaning I have a file for the font)
-                families: ['BadComic-Regular'], //Put the same thing as done in the html file
+                families: ['BadComic-Regular', 'Goudy'], //Put the same thing as done in the html file
             },
             active: () => { //If the font has loaded and is now active, start the scene
                 this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
