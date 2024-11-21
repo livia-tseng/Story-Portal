@@ -92,6 +92,7 @@ export class LevelTwoScene extends Phaser.Scene {
         containerBackButton.setSize(backButton.width, backButton.height);
         containerBackButton.setInteractive();
         containerBackButton.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
 
