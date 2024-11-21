@@ -31,7 +31,7 @@ export class LevelThreeScene extends Phaser.Scene {
 
         let question = this.add.text(240, 90, 'What was served \n on the train?',
             {
-                fontFamily: 'BadComic-Regular',
+                fontFamily: 'Goudy',
                 color: '#D3D3D3',
                 fontSize: '40px',
         }).setOrigin(0.5).setDepth(1);
