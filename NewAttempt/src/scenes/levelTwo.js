@@ -82,13 +82,13 @@ export class LevelTwoScene extends Phaser.Scene {
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
 
-        let question = this.add.text(680, 200, 'Question Here!',
+        let question = this.add.text(680, 210, 'Question Here!',
             {
                 fontFamily: 'BadComic-Regular',
                 color: '#D3D3D3',
                 fontSize: '30px',
         }).setOrigin(1, 0).setDepth(1);
-        question.setAngle(-30);
+        question.setAngle(-40);
         question.setScale(0.8,1);
 
         //Stars on Click!

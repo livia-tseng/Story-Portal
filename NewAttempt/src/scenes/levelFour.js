@@ -26,14 +26,19 @@ export class LevelFourScene extends Phaser.Scene {
         let train2 = this.add.image(0,0, 'train2').setOrigin(0).setScale(screenWidth, screenHeight).setAlpha(0).setDepth(1);
         let train3 = this.add.image(0,0, 'train3').setOrigin(0).setScale(screenWidth, screenHeight).setAlpha(0).setDepth(1);
 
-
         this.add.image(0,0, 'snow').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
 
+        let lvl4Audio = this.sound.add('lvl4audio', {
+            volume: 0.2,
+            loop: true,
+        });
+        lvl4Audio.play();
+
         // answer buttons
-        let corrBtn = correctButton(this, 200, 50, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
-        let wBtn1 = wrongButton(this,320,50,'ameen4').setDepth(2).setAlpha(0);
-        let wBtn2 = wrongButton(this,200,170, 'ameen4').setDepth(2).setAlpha(0);
-        let wBtn3 = wrongButton(this,320,170,'ameen4').setDepth(2).setAlpha(0);
+        let corrBtn = correctButton(this, 215, 110, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
+        let wBtn1 = wrongButton(this,335,110,'ameen4').setDepth(2).setAlpha(0);
+        let wBtn2 = wrongButton(this,215,210, 'ameen4').setDepth(2).setAlpha(0);
+        let wBtn3 = wrongButton(this,335,210,'ameen4').setDepth(2).setAlpha(0);
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);
@@ -48,8 +53,16 @@ export class LevelFourScene extends Phaser.Scene {
         containerBackButton.setSize(backButton.width, backButton.height);
         containerBackButton.setInteractive();
         containerBackButton.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
+
+        let question = this.add.text(130, 0, 'Question Here!',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '40px',
+        }).setOrigin(0).setDepth(1).setAlpha(0);
 
         this.input.enabled = false;
         this.tweens.add({
@@ -80,7 +93,7 @@ export class LevelFourScene extends Phaser.Scene {
                                             duration: 1000, // Fade-out duration for the second image
                                             onComplete: () => { 
                                                 this.tweens.add({
-                                                    targets:[corrBtn, wBtn1, wBtn2, wBtn3, backButton, backText],
+                                                    targets:[corrBtn, wBtn1, wBtn2, wBtn3, backButton, backText, question],
                                                     alpha: 1,
                                                     duration: 1000,
                                                 });

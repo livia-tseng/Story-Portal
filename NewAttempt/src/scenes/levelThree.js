@@ -29,9 +29,37 @@ export class LevelThreeScene extends Phaser.Scene {
         });
         trainAudio.play();
 
+        let question = this.add.text(240, 90, 'Question Here!',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '40px',
+        }).setOrigin(0.5).setDepth(1);
+        question.setAngle(-1);
+        question.setScale(0.8,1);
+        
+        //Back Button Stuff
+        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
+        const backText = this.add.text(0, 0, 'BACK',
+            {
+                fontFamily: 'BadComic-Regular',
+                color: '#D3D3D3',
+                fontSize: '60px',
+        }).setOrigin(0.5, 0.7).setDepth(2);
+        //Container!
+        const containerBackButton = this.add.container(backButton.width/2, 600 - (backButton.height/2), [backButton, backText]).setDepth(2);
+        containerBackButton.setSize(backButton.width, backButton.height);
+        containerBackButton.setInteractive();
+        containerBackButton.on("pointerup", ()=>{
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+        });
+
         // answer buttons
 
-        correctButton(this, 525, 200, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
+        correctButton(this, 525, 120, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
+            containerBackButton.destroy();
+            question.destroy();
             const tokyoDrift = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'tokyodrift');
             tokyoDrift.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
@@ -51,27 +79,9 @@ export class LevelThreeScene extends Phaser.Scene {
             })
         });
 
-        wrongButton(this,645,200,'jayden3');
-        wrongButton(this,525,320, 'jayden3');
-        wrongButton(this,645,320,'jayden3');
-        
-        //Back Button Stuff
-        const backButton = this.add.image(0, 0, 'mediumButton').setDepth(1);
-        const startText = this.add.text(0, 0, 'BACK',
-            {
-                fontFamily: 'BadComic-Regular',
-                color: '#D3D3D3',
-                fontSize: '60px',
-        }).setOrigin(0.5, 0.7).setDepth(2);
-
-        //Container!
-        const containerBackButton = this.add.container(backButton.width/2, backButton.height/2, [backButton, startText]);
-        containerBackButton.setSize(backButton.width, backButton.height);
-        containerBackButton.setInteractive();
-
-        containerBackButton.on("pointerup", ()=>{
-            this.scene.start(SCENE_KEYS.GAME_START_SCENE);
-        });
+        wrongButton(this,645,120,'jayden3');
+        wrongButton(this,525,240, 'jayden3');
+        wrongButton(this,645,240,'jayden3');
 
         //Stars on Click!
         effectOnClick(this);
