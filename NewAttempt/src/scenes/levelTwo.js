@@ -43,6 +43,8 @@ export class LevelTwoScene extends Phaser.Scene {
         //answer buttons
         wrongButton(this, 100, 100, 'jayden2');
         correctButton(this,240,100,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
+            question.destroy();
+            containerBackButton.destroy();
             const getOnTrain = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'gettingontrain');
             getOnTrain.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
