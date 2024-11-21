@@ -26,6 +26,18 @@ export class GameStartScene extends Phaser.Scene {
             color: '#837d43',
             fontSize: '60px'
         }).setOrigin(0.5, 0.5).setDepth(1);
+        
+
+        let mainMenuScene = this.scene.get(SCENE_KEYS.MAIN_MENU_SCENE);
+        if (mainMenuScene.sound.get('mainmenuaudio').isPlaying) {
+            
+        } else {
+            let introAudio = this.sound.add('mainmenuaudio', {
+                volume: 1.0,
+                loop: true,
+            });
+            introAudio.play();
+        }
 
         let levelOneBtn = this.add.image(115, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
         let levelTwoBtn = this.add.image(305, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
@@ -39,18 +51,22 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELONE_SCENE);
         })
 
         levelTwoBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELTWO_SCENE);
         })
 
         levelThreeBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELTHREE_SCENE);
         })
 
         levelFourBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELFOUR_SCENE);
         })
 
@@ -105,6 +121,7 @@ export class GameStartScene extends Phaser.Scene {
         cancelBtn.setInteractive();
         cancelBtn.on("pointerup", ()=>{
             console.log("Cancel Button Pressed");
+            this.sound.stopAll();
             this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
         })
 
