@@ -98,7 +98,7 @@ export class LevelTwoScene extends Phaser.Scene {
 
         let question = this.add.text(680, 210, 'Where is the train headed?',
             {
-                fontFamily: 'BadComic-Regular',
+                fontFamily: 'Goudy',
                 color: '#D3D3D3',
                 fontSize: '30px',
         }).setOrigin(1, 0).setDepth(1);

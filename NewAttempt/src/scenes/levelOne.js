@@ -117,7 +117,7 @@ export class LevelOneScene extends Phaser.Scene {
 
         let question = this.add.text(780, 80, 'What did Chris \n hear from outside?',
             {
-                fontFamily: 'BadComic-Regular',
+                fontFamily: 'Goudy',
                 color: '#D3D3D3',
                 fontSize: '40px',
         }).setOrigin(1, 0).setAlpha(0);

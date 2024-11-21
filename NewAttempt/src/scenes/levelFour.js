@@ -60,7 +60,7 @@ export class LevelFourScene extends Phaser.Scene {
 
         let question = this.add.text(130, 0, 'What didn’t the train pass through?',
             {
-                fontFamily: 'BadComic-Regular',
+                fontFamily: 'Goudy',
                 color: '#D3D3D3',
                 fontSize: '40px',
         }).setOrigin(0).setDepth(1).setAlpha(0);
