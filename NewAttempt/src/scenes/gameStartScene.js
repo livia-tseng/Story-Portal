@@ -53,6 +53,52 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.on("pointerup", ()=>{
             this.scene.start(SCENE_KEYS.LEVELFOUR_SCENE);
         })
+
+        // Tween parameters
+        const jumpTween = (target) => {
+            return this.tweens.add({
+                targets: target,
+                y: target.y - 10,       // Move up by 10 pixels
+                duration: 400,          // Duration of the jump
+                yoyo: true,             // Return to original position
+                repeat: -1,             // Repeat indefinitely
+                ease: 'Sine.easeInOut', // Smooth easing
+                paused: true            // Start paused
+            });
+        };
+    
+        const buttonTween1 = jumpTween(levelOneBtn);
+        levelOneBtn.on('pointerover', () => {
+            buttonTween1.resume(); // Resume the jump animation
+        });
+        levelOneBtn.on('pointerout', () => {
+            buttonTween1.pause();  // Pause the jump animation
+            buttonTween1.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween2 = jumpTween(levelTwoBtn);
+        levelTwoBtn.on('pointerover', () => {
+            buttonTween2.resume(); // Resume the jump animation
+        });
+        levelTwoBtn.on('pointerout', () => {
+            buttonTween2.pause();  // Pause the jump animation
+            buttonTween2.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween3 = jumpTween(levelThreeBtn);
+        levelThreeBtn.on('pointerover', () => {
+            buttonTween3.resume(); // Resume the jump animation
+        });
+        levelThreeBtn.on('pointerout', () => {
+            buttonTween3.pause();  // Pause the jump animation
+            buttonTween3.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween4 = jumpTween(levelFourBtn);
+        levelFourBtn.on('pointerover', () => {
+            buttonTween4.resume(); // Resume the jump animation
+        });
+        levelFourBtn.on('pointerout', () => {
+            buttonTween4.pause();  // Pause the jump animation
+            buttonTween4.seek(0);  // Reset the tween to its initial state
+        });
         
         //Cancel Button to go back to main menu
         let cancelBtn = this.add.image(0,600, 'cancelButton').setOrigin(0, 1).setDepth(1);

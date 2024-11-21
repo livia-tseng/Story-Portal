@@ -35,10 +35,56 @@ export class LevelFourScene extends Phaser.Scene {
         lvl4Audio.play();
 
         // answer buttons
-        let corrBtn = correctButton(this, 215, 110, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
-        let wBtn1 = wrongButton(this,335,110,'ameen4').setDepth(2).setAlpha(0);
+        let corrBtn = correctButton(this, 215, 100, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
+        let wBtn1 = wrongButton(this,335,100,'ameen4').setDepth(2).setAlpha(0);
         let wBtn2 = wrongButton(this,215,210, 'ameen4').setDepth(2).setAlpha(0);
         let wBtn3 = wrongButton(this,335,210,'ameen4').setDepth(2).setAlpha(0);
+
+        // Tween parameters
+        const jumpTween = (target) => {
+            return this.tweens.add({
+                targets: target,
+                y: target.y - 10,       // Move up by 10 pixels
+                duration: 400,          // Duration of the jump
+                yoyo: true,             // Return to original position
+                repeat: -1,             // Repeat indefinitely
+                ease: 'Sine.easeInOut', // Smooth easing
+                paused: true            // Start paused
+            });
+            };
+    
+            const buttonTween1 = jumpTween(wBtn1);
+            wBtn1.on('pointerover', () => {
+                buttonTween1.resume(); // Resume the jump animation
+            });
+            wBtn1.on('pointerout', () => {
+                buttonTween1.pause();  // Pause the jump animation
+                buttonTween1.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween2 = jumpTween(corrBtn);
+            corrBtn.on('pointerover', () => {
+                buttonTween2.resume(); // Resume the jump animation
+            });
+            corrBtn.on('pointerout', () => {
+                buttonTween2.pause();  // Pause the jump animation
+                buttonTween2.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween3 = jumpTween(wBtn2);
+            wBtn2.on('pointerover', () => {
+                buttonTween3.resume(); // Resume the jump animation
+            });
+            wBtn2.on('pointerout', () => {
+                buttonTween3.pause();  // Pause the jump animation
+                buttonTween3.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween4 = jumpTween(wBtn3);
+            wBtn3.on('pointerover', () => {
+                buttonTween4.resume(); // Resume the jump animation
+            });
+            wBtn3.on('pointerout', () => {
+                buttonTween4.pause();  // Pause the jump animation
+                buttonTween4.seek(0);  // Reset the tween to its initial state
+            });
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);

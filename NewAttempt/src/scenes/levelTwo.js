@@ -41,8 +41,8 @@ export class LevelTwoScene extends Phaser.Scene {
 
 
         //answer buttons
-        wrongButton(this, 100, 100, 'jayden2');
-        correctButton(this,240,100,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
+        let wb1 = wrongButton(this, 100, 100, 'jayden2');
+        let corrB = correctButton(this,240,100,'jayden2',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
             question.destroy();
             containerBackButton.destroy();
             const getOnTrain = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'gettingontrain');
@@ -64,8 +64,54 @@ export class LevelTwoScene extends Phaser.Scene {
             })
         });
         ;
-        wrongButton(this,380,100, 'jayden2');
-        wrongButton(this,520,100,'jayden2');
+        let wb2 = wrongButton(this,380,100, 'jayden2');
+        let wb3 = wrongButton(this,520,100,'jayden2');
+
+        // Tween parameters
+        const jumpTween = (target) => {
+            return this.tweens.add({
+                targets: target,
+                y: target.y - 10,       // Move up by 10 pixels
+                duration: 400,          // Duration of the jump
+                yoyo: true,             // Return to original position
+                repeat: -1,             // Repeat indefinitely
+                ease: 'Sine.easeInOut', // Smooth easing
+                paused: true            // Start paused
+            });
+            };
+    
+            const buttonTween1 = jumpTween(wb1);
+            wb1.on('pointerover', () => {
+                buttonTween1.resume(); // Resume the jump animation
+            });
+            wb1.on('pointerout', () => {
+                buttonTween1.pause();  // Pause the jump animation
+                buttonTween1.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween2 = jumpTween(corrB);
+            corrB.on('pointerover', () => {
+                buttonTween2.resume(); // Resume the jump animation
+            });
+            corrB.on('pointerout', () => {
+                buttonTween2.pause();  // Pause the jump animation
+                buttonTween2.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween3 = jumpTween(wb2);
+            wb2.on('pointerover', () => {
+                buttonTween3.resume(); // Resume the jump animation
+            });
+            wb2.on('pointerout', () => {
+                buttonTween3.pause();  // Pause the jump animation
+                buttonTween3.seek(0);  // Reset the tween to its initial state
+            });
+            const buttonTween4 = jumpTween(wb3);
+            wb3.on('pointerover', () => {
+                buttonTween4.resume(); // Resume the jump animation
+            });
+            wb3.on('pointerout', () => {
+                buttonTween4.pause();  // Pause the jump animation
+                buttonTween4.seek(0);  // Reset the tween to its initial state
+            });
 
         
         //Back Button Stuff
