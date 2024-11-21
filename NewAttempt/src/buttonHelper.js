@@ -1,9 +1,28 @@
 export function wrongButton(scene,x,y,assetKey) {
+    
     const wrongButton = scene.add.sprite(x,y,assetKey)
         .setInteractive()
         .setOrigin(0.5)
         .setScale(0.3,0.3)
-        .on('pointerup', ()=> {wrongButton.setTint(0xff0000).setAlpha(0.5)
+        
+        const jumpTween = () => {
+            return scene.tweens.add({
+                targets: wrongButton,
+                y: wrongButton.y - 10,       // Move up by 10 pixels
+                duration: 400,          // Duration of the jump
+                yoyo: true,             // Return to original position
+                repeat: -1,             // Repeat indefinitely
+                ease: 'Sine.easeInOut', // Smooth easing
+                paused: true            // Start paused
+            });
+        };
+
+        const buttonTween = jumpTween();
+
+        wrongButton.on('pointerup', ()=> {wrongButton.setTint(0xff0000).setAlpha(0.5)
+            buttonTween.pause();
+            buttonTween.seek(0);  // Reset the tween to its original state
+            wrongButton.disableInteractive();
             scene.input.enabled = false;
             let wrongText = scene.add.text(400,300,"Wrong!", {
                 fontSize: "64px",
@@ -15,6 +34,16 @@ export function wrongButton(scene,x,y,assetKey) {
                 scene.input.enabled = true;
             })
         })
+
+        
+        wrongButton.on('pointerover', () => {
+            buttonTween.resume(); // Start the bounce effect
+        });
+        wrongButton.on('pointerout', () => {
+            buttonTween.pause();  // Stop the bounce animation
+            buttonTween.seek(0);  // Reset the tween to its original state
+        });
+
     return wrongButton;
 }
 
@@ -23,7 +52,24 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
         .setInteractive()
         .setOrigin(0.5)
         .setScale(0.3,0.3)
-        .on('pointerdown', () => {
+        const jumpTween = () => {
+            return scene.tweens.add({
+                targets: correctButton,
+                y: correctButton.y - 10,       // Move up by 10 pixels
+                duration: 400,          // Duration of the jump
+                yoyo: true,             // Return to original position
+                repeat: -1,             // Repeat indefinitely
+                ease: 'Sine.easeInOut', // Smooth easing
+                paused: true            // Start paused
+            });
+        };
+
+        const buttonTween = jumpTween();
+
+        correctButton.on('pointerdown', () => {
+            buttonTween.pause();
+            buttonTween.seek(0);  // Reset the tween to its original state
+            correctButton.disableInteractive();
             scene.input.enabled = false;
             correctButton.setTint(0xff0000).setAlpha(0.5)
             
@@ -45,6 +91,15 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
                 scene.scene.start(nextScene);
         }})
         })
+
+        
+        correctButton.on('pointerover', () => {
+            buttonTween.resume(); // Start the bounce effect
+        });
+        correctButton.on('pointerout', () => {
+            buttonTween.pause();  // Stop the bounce animation
+            buttonTween.seek(0);  // Reset the tween to its original state
+        });
         return correctButton;
     };
         
