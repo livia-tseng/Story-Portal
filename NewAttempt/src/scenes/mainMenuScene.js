@@ -31,7 +31,7 @@ export class MainMenuScene extends Phaser.Scene {
 //.setOrigin(0) makes it so the origin is now at the top left corner of the image
 
         //Title Text
-        const titleText = this.add.text(400, 300, 'The Polar Express', {
+        const titleText = this.add.text(400, 270, 'The Polar Express', {
             fontFamily: 'Gaudy',
             color: '#efe157',
             fontSize: '70px'
@@ -70,6 +70,14 @@ export class MainMenuScene extends Phaser.Scene {
 
         //Stars on Click!
         effectOnClick(this);
+
+        //audio
+        let introAudio = this.sound.add('mainmenuaudio', {
+            volume: 1.0,
+            loop: true,
+        });
+        introAudio.play();
+
 
     }
 
