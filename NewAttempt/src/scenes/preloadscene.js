@@ -62,11 +62,13 @@ export class PreloadScene extends Phaser.Scene {
         this.load.audio('lvl3audio','./assets/audio/level3audio.mp3'); //Level 3
         this.load.audio('lvl4audio', './assets/audio/level4audio.mp3'); //Level 4
         this.load.audio('lvl2audio','./assets/audio/level2bgaudio.mp3');
+        this.load.audio('mainmenuaudio','./assets/audio/mainmenuaudio');
 
         //video
         this.load.video('trainarriving','./assets/videos/trainarriving.mp4');
         this.load.video('gettingontrain','./assets/videos/gettingontrain.mp4');
         this.load.video('tokyodrift','./assets/videos/tokyodrift.mp4');
+
     }
     
     create() {
