@@ -122,3 +122,10 @@ export function effectOnClick(scene) {
 
     return emitterStars;
 }
+
+export function skipScene(nextScene) {
+    let skipScene = this.add.image(400,400,'samuelf').setOrigin(0.5).setScale(0.3).setInteractive();
+    skipScene.on('pointerup',()=> {
+        this.scene.start(nextScene)
+    });
+}

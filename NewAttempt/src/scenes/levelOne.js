@@ -3,6 +3,7 @@ import { SCENE_KEYS } from './sceneKeys.js';
 import { wrongButton } from '../buttonHelper.js';
 import { correctButton } from '../buttonHelper.js';
 import { effectOnClick } from '../buttonHelper.js';
+import { skipScene } from '../buttonHelper.js';
 
 export class LevelOneScene extends Phaser.Scene {
     constructor() {
