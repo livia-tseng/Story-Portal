@@ -70,6 +70,7 @@ export class MainMenuScene extends Phaser.Scene {
 
         //Stars on Click!
         effectOnClick(this);
+
     }
 
     
