@@ -29,6 +29,42 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl4', './assets/images/4-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
 
+        //L1 answers
+        this.load.image('1a','./assets/images/sp_1a.png');
+        this.load.image('1b','./assets/images/sp_1b.png');
+        this.load.image('1c','./assets/images/sp_1c.png');
+        this.load.image('1d','./assets/images/sp_1d.png');
+
+        //L2 answers
+        this.load.image('2a','./assets/images/sp_2a.png');
+        this.load.image('2b','./assets/images/sp_2b.png');
+        this.load.image('2c','./assets/images/sp_2c.png');
+        this.load.image('2d','./assets/images/sp_2d.png');
+
+        //L3 answers
+        this.load.image('3a','./assets/images/sp_3a.png');
+        this.load.image('3b','./assets/images/sp_3b.png');
+        this.load.image('3c','./assets/images/sp_3c.png');
+        this.load.image('3d','./assets/images/sp_3d.png');
+
+        //L4 answers
+        this.load.image('4a','./assets/images/sp_4a.png');
+        this.load.image('4b','./assets/images/sp_4b.png');
+        this.load.image('4c','./assets/images/sp_4c.png');
+        this.load.image('4d','./assets/images/sp_4d.png');
+
+        //L5 answers
+        this.load.image('5a','./assets/images/sp_5a.png');
+        this.load.image('5b','./assets/images/sp_5b.png');
+        this.load.image('5c','./assets/images/sp_5c.png');
+        this.load.image('5d','./assets/images/sp_5d.png');
+
+        //L6 answers
+        this.load.image('6a','./assets/images/sp_6a.png');
+        this.load.image('6b','./assets/images/sp_6b.png');
+        this.load.image('6c','./assets/images/sp_6c.png');
+        this.load.image('6d','./assets/images/sp_6d.png');
+
         //Level 1 stuff
         this.load.image('samuelf','./assets/images/samuelf.png');
         this.load.image('windowDark', './assets/images/1-windowDark.png');

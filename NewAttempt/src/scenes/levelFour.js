@@ -35,10 +35,10 @@ export class LevelFourScene extends Phaser.Scene {
         lvl4Audio.play();
 
         // answer buttons
-        let corrBtn = correctButton(this, 215, 100, 'ameen4',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0);
-        let wBtn1 = wrongButton(this,335,100,'ameen4').setDepth(2).setAlpha(0);
-        let wBtn2 = wrongButton(this,215,210, 'ameen4').setDepth(2).setAlpha(0);
-        let wBtn3 = wrongButton(this,335,210,'ameen4').setDepth(2).setAlpha(0);
+        let corrBtn = correctButton(this, 205, 100, '4a',SCENE_KEYS.GAME_START_SCENE).setDepth(2).setAlpha(0).setScale(.075);
+        let wBtn1 = wrongButton(this,365,100,'4b').setDepth(2).setAlpha(0).setScale(.075);
+        let wBtn2 = wrongButton(this,205,210, '4c').setDepth(2).setAlpha(0).setScale(.075);
+        let wBtn3 = wrongButton(this,365,210,'4d').setDepth(2).setAlpha(0).setScale(.075);
 
 
         //Back Button Stuff
@@ -58,7 +58,7 @@ export class LevelFourScene extends Phaser.Scene {
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
 
-        let question = this.add.text(130, 0, 'Question Here!',
+        let question = this.add.text(130, 0, 'What didn’t the train pass through?',
             {
                 fontFamily: 'BadComic-Regular',
                 color: '#D3D3D3',

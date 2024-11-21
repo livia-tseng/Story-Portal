@@ -29,7 +29,7 @@ export class LevelThreeScene extends Phaser.Scene {
         });
         trainAudio.play();
 
-        let question = this.add.text(240, 90, 'Question Here!',
+        let question = this.add.text(240, 90, 'What was served \n on the train?',
             {
                 fontFamily: 'BadComic-Regular',
                 color: '#D3D3D3',
@@ -57,7 +57,7 @@ export class LevelThreeScene extends Phaser.Scene {
 
         // answer buttons
 
-        let corrB = correctButton(this, 525, 120, 'jayden3',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
+        let corrB = correctButton(this, 515, 120, '3a',SCENE_KEYS.LEVELFOUR_SCENE, (done) => {
             containerBackButton.destroy();
             question.destroy();
             const tokyoDrift = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'tokyodrift');
@@ -77,11 +77,11 @@ export class LevelThreeScene extends Phaser.Scene {
                     }
                 })
             })
-        });
+        }).setScale(.085);
 
-        let wb1 = wrongButton(this,645,120,'jayden3');
-        let wb2 = wrongButton(this,525,240, 'jayden3');
-        let wb3 = wrongButton(this,645,240,'jayden3');
+        let wb1 = wrongButton(this,695,120,'3b').setScale(.085);
+        let wb2 = wrongButton(this,515,240, '3c').setScale(.085);
+        let wb3 = wrongButton(this,695,240,'3d').setScale(.085);
 
         
 
