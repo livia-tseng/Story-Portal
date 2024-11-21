@@ -72,22 +72,13 @@ export class MainMenuScene extends Phaser.Scene {
         //Stars on Click!
         effectOnClick(this);
 
+        
         let introAudio = this.sound.add('mainmenuaudio', {
             volume: 1.0,
             loop: true,
         });
         introAudio.play();
-        
-        //audio
-        if (this.sound.get('mainmenuaudio').isPlaying) {
 
-        } else {
-            let introAudio = this.sound.add('mainmenuaudio', {
-                volume: 1.0,
-                loop: true,
-            });
-            introAudio.play();
-        }
 
     }
 
