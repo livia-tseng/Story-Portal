@@ -28,6 +28,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl3', './assets/images/level3bg.png');
         this.load.image('bgl4', './assets/images/4-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
+        this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
 
         //L1 answers
         this.load.image('1a','./assets/images/sp_1a.png');
@@ -65,11 +66,13 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('6c','./assets/images/sp_6c.png');
         this.load.image('6d','./assets/images/sp_6d.png');
 
+
         //Level 1 stuff
         this.load.image('samuelf','./assets/images/samuelf.png');
         this.load.image('windowDark', './assets/images/1-windowDark.png');
         this.load.image('windowLight', './assets/images/1-windowLight.png');
         this.load.image('snowflake', './assets/images/snowflake.png');
+
 
         //Level 4 stuff
         this.load.image('ameen4', './assets/images/ameen4.jpg');
@@ -80,6 +83,9 @@ export class PreloadScene extends Phaser.Scene {
 
         this.load.image('jayden2', './assets/images/jayden2.jpg');
         this.load.image('jayden3', './assets/images/jayden3.jpg');
+
+        //Level draggable
+        this.load.image('ameenDrag', './assets/images/ameenDraggable.jpg');
         
         this.load.image('startBtn', './assets/images/TextBTN_Big.png');
         this.load.image('creditsBtn', './assets/images/Exclamation_Yellow.png');

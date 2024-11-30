@@ -43,12 +43,14 @@ export class GameStartScene extends Phaser.Scene {
         let levelTwoBtn = this.add.image(305, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelThreeBtn = this.add.image(495, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelFourBtn = this.add.image(685, 200, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelDragBtn = this.add.image(115, 400, 'ameenDrag').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
 
 
         levelOneBtn.setInteractive();
         levelTwoBtn.setInteractive();
         levelThreeBtn.setInteractive();
         levelFourBtn.setInteractive();
+        levelDragBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
             this.sound.stopAll();
@@ -68,6 +70,11 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.on("pointerup", ()=>{
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELFOUR_SCENE);
+        })
+        
+        levelDragBtn.on("pointerup", ()=> {
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.LEVELDRAGGABLE_SCENE);
         })
 
         // Tween parameters
@@ -115,6 +122,15 @@ export class GameStartScene extends Phaser.Scene {
             buttonTween4.pause();  // Pause the jump animation
             buttonTween4.seek(0);  // Reset the tween to its initial state
         });
+        const buttonTweenDrag = jumpTween(levelDragBtn);
+        levelDragBtn.on('pointerover', () => {
+            buttonTweenDrag.resume(); // Resume the jump animation
+        });
+        levelDragBtn.on('pointerout', () => {
+            buttonTweenDrag.pause();  // Pause the jump animation
+            buttonTweenDrag.seek(0);  // Reset the tween to its initial state
+        });
+
         
         //Cancel Button to go back to main menu
         let cancelBtn = this.add.image(0,600, 'cancelButton').setOrigin(0, 1).setDepth(1);
