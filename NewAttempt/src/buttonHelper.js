@@ -104,8 +104,6 @@ export function correctButton(scene,x,y,assetKey,nextScene, callback=null) {
     };
         
   
-
-
 export function effectOnClick(scene) {
     const emitterStars = scene.add.particles(0, 0, 'star', {
         lifespan: 400,
