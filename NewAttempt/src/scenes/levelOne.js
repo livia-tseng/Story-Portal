@@ -3,7 +3,6 @@ import { SCENE_KEYS } from './sceneKeys.js';
 import { wrongButton } from '../buttonHelper.js';
 import { correctButton } from '../buttonHelper.js';
 import { effectOnClick } from '../buttonHelper.js';
-import { skipScene } from '../buttonHelper.js';
 
 export class LevelOneScene extends Phaser.Scene {
     constructor() {
@@ -103,7 +102,17 @@ export class LevelOneScene extends Phaser.Scene {
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
                 .setOrigin(0, 0)
                 .setAlpha(1)
-                .setDepth(0);    
+                .setDepth(0);
+                const skipButton = this.add.image(740, 540,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
+
+                skipButton.on('pointerup', () => {
+                    skipButton.destroy();
+                    if (trainarrive.isPlaying()) {
+                        trainarrive.stop();
+                    }
+                    trainarrive.destroy();
+                    done();
+                })
             trainarrive.on('complete', ()=> {
                 this.tweens.add({
                     targets: trainarrive,
