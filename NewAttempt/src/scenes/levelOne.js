@@ -103,7 +103,7 @@ export class LevelOneScene extends Phaser.Scene {
                 .setOrigin(0, 0)
                 .setAlpha(1)
                 .setDepth(0);
-                const skipButton = this.add.image(740, 540,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
+                const skipButton = this.add.image(750, 550,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
 
                 skipButton.on('pointerup', () => {
                     skipButton.destroy();
