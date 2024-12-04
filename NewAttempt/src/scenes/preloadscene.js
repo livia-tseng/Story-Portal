@@ -30,6 +30,14 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
 
+        //Level 1 stuff
+        this.load.image('samuelf','./assets/images/samuelf.png');
+        this.load.image('windowDark', './assets/images/1-windowDark.png');
+        this.load.image('windowLight', './assets/images/1-windowLight.png');
+        this.load.image('boySleep', './assets/images/1-Animated-ChrisSleep.png');
+        this.load.image('boyUp','./assets/images/1-Animated-ChrisUp.png');
+        this.load.image('question1', './assets/images/1-Question.png');
+        this.load.image('snowflake', './assets/images/snowflake.png');
         //L1 answers
         this.load.image('1a','./assets/images/sp_1a.png');
         this.load.image('1b','./assets/images/sp_1b.png');
@@ -67,11 +75,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('6d','./assets/images/sp_6d.png');
 
 
-        //Level 1 stuff
-        this.load.image('samuelf','./assets/images/samuelf.png');
-        this.load.image('windowDark', './assets/images/1-windowDark.png');
-        this.load.image('windowLight', './assets/images/1-windowLight.png');
-        this.load.image('snowflake', './assets/images/snowflake.png');
+        
 
 
         //Level 4 stuff

@@ -18,7 +18,7 @@ export class LevelOneScene extends Phaser.Scene {
     }
 
 
-    create(){
+    create() {
         const screenWidth = 800 / this.textures.get('bgl1').getSourceImage().width;
         const screenHeight = 600 / this.textures.get('bgl1').getSourceImage().height;
         this.add.image(0,0,'bgl1').setOrigin(0).setScale(screenWidth,screenHeight).setDepth(0);
@@ -27,7 +27,9 @@ export class LevelOneScene extends Phaser.Scene {
         let windowDark = this.add.image(400,300, 'windowDark').setOrigin(0.5).setScale(screenWidth, screenHeight).setDepth(0);
         //Light window
         let windowLight = this.add.image(0,0, 'windowLight').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0).setAlpha(0);
-
+        //Boy Sleep
+        let boySleep = this.add.image(0, 0, 'boySleep').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
+        let boyUp = this.add.image(0, 0, 'boyUp').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0).setAlpha(0);
 
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2).setAlpha(0);
@@ -69,12 +71,12 @@ export class LevelOneScene extends Phaser.Scene {
             this.cameras.main.shake(2000, 0.05);
             this.input.enabled = false;
             this.tweens.add({
-                targets: windowDark,        // The image to tween
+                targets: [windowDark, boySleep],        // The image to tween
                 alpha: 1,              // Target alpha value
                 duration: 1000,         // Duration of fade-out in ms
                 onComplete: () => {
                     this.tweens.add({
-                        targets: windowLight,
+                        targets: [windowLight, boyUp],
                         alpha: 1,      // Target alpha value
                         duration: 1000,  // Duration of fade-in in ms
                         onComplete: () => {
@@ -116,14 +118,7 @@ export class LevelOneScene extends Phaser.Scene {
         let wb3 = wrongButton(this,640,500,'1d').setAlpha(0).setScale(.085);
 
 
-        let question = this.add.text(780, 80, 'What did Chris \n hear from outside?',
-            {
-                fontFamily: 'Goudy',
-                color: '#D3D3D3',
-                fontSize: '40px',
-        }).setOrigin(1, 0).setAlpha(0);
-        question.setAngle(2.5);
-        question.setScale(1,0.8);
+        let question = this.add.image(0, 0, 'question1').setOrigin(0).setAlpha(0).setScale(screenWidth, screenHeight).setDepth(3);
     }
 
     shakeCamera() {
