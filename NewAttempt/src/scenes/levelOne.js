@@ -93,6 +93,8 @@ export class LevelOneScene extends Phaser.Scene {
             });
         });
 
+        let question = this.add.image(0, 0, 'question1').setOrigin(0).setAlpha(0).setScale(screenWidth, screenHeight).setDepth(0);
+
         //answer buttons
         let wb1 = wrongButton(this, 160, 500, '1a').setAlpha(0).setScale(.085);
         let corrB = correctButton(this,320,500,'1b', SCENE_KEYS.LEVELTWO_SCENE, (done) => {
@@ -118,7 +120,6 @@ export class LevelOneScene extends Phaser.Scene {
         let wb3 = wrongButton(this,640,500,'1d').setAlpha(0).setScale(.085);
 
 
-        let question = this.add.image(0, 0, 'question1').setOrigin(0).setAlpha(0).setScale(screenWidth, screenHeight).setDepth(3);
     }
 
     shakeCamera() {
