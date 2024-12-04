@@ -43,13 +43,18 @@ export class GameStartScene extends Phaser.Scene {
         let levelTwoBtn = this.add.image(305, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelThreeBtn = this.add.image(495, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
         let levelFourBtn = this.add.image(685, 200, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
-        let levelDragBtn = this.add.image(115, 400, 'ameenDrag').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelFiveBtn = this.add.image(115, 400, 'ameen5').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelSixBtn = this.add.image(305, 400, 'ameen6').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelSevenBtn = this.add.image(495, 400, 'ameen7').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelDragBtn = this.add.image(495, 400, 'ameenDrag').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
 
 
         levelOneBtn.setInteractive();
         levelTwoBtn.setInteractive();
         levelThreeBtn.setInteractive();
         levelFourBtn.setInteractive();
+        levelFiveBtn.setInteractive();
+        levelSixBtn.setInteractive();
         levelDragBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
@@ -70,6 +75,16 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.on("pointerup", ()=>{
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELFOUR_SCENE);
+        })
+
+        levelFiveBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.LEVELFIVE_SCENE);
+        })
+
+        levelSixBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.LEVELSIX_SCENE);
         })
         
         levelDragBtn.on("pointerup", ()=> {
@@ -121,6 +136,22 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.on('pointerout', () => {
             buttonTween4.pause();  // Pause the jump animation
             buttonTween4.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween5 = jumpTween(levelFiveBtn);
+        levelFiveBtn.on('pointerover', () => {
+            buttonTween5.resume(); // Resume the jump animation
+        });
+        levelFiveBtn.on('pointerout', () => {
+            buttonTween5.pause();  // Pause the jump animation
+            buttonTween5.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween6 = jumpTween(levelSixBtn);
+        levelSixBtn.on('pointerover', () => {
+            buttonTween6.resume(); // Resume the jump animation
+        });
+        levelSixBtn.on('pointerout', () => {
+            buttonTween6.pause();  // Pause the jump animation
+            buttonTween6.seek(0);  // Reset the tween to its initial state
         });
         const buttonTweenDrag = jumpTween(levelDragBtn);
         levelDragBtn.on('pointerover', () => {

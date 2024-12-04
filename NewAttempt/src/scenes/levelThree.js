@@ -29,14 +29,7 @@ export class LevelThreeScene extends Phaser.Scene {
         });
         trainAudio.play();
 
-        let question = this.add.text(240, 90, 'What was served \n on the train?',
-            {
-                fontFamily: 'Goudy',
-                color: '#D3D3D3',
-                fontSize: '40px',
-        }).setOrigin(0.5).setDepth(1);
-        question.setAngle(-1);
-        question.setScale(0.8,1);
+        let question = this.add.image(0, 0, 'question3').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);

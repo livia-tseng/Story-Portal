@@ -6,8 +6,11 @@ import { CreditsScene } from './scenes/creditsScene.js';
 import { GameStartScene } from './scenes/gameStartScene.js';
 import { LevelOneScene } from './scenes/levelOne.js';
 import { LevelTwoScene } from './scenes/levelTwo.js';
-import{ LevelThreeScene } from './scenes/levelThree.js';
+import { LevelThreeScene } from './scenes/levelThree.js';
 import { LevelFourScene } from './scenes/levelFour.js';
+import { LevelFiveScene } from './scenes/levelFive.js';
+import { LevelSixScene } from './scenes/levelSix.js';
+import { LevelSevenScene } from './scenes/levelSeven.js';
 import { LevelDraggableScene } from './scenes/levelDraggable.js';
 
 
@@ -38,6 +41,9 @@ game.scene.add(SCENE_KEYS.LEVELONE_SCENE, LevelOneScene);
 game.scene.add(SCENE_KEYS.LEVELTWO_SCENE, LevelTwoScene);
 game.scene.add(SCENE_KEYS.LEVELTHREE_SCENE, LevelThreeScene);
 game.scene.add(SCENE_KEYS.LEVELFOUR_SCENE, LevelFourScene);
+game.scene.add(SCENE_KEYS.LEVELFIVE_SCENE, LevelFiveScene);
+game.scene.add(SCENE_KEYS.LEVELSIX_SCENE, LevelSixScene);
+game.scene.add(SCENE_KEYS.LEVELSEVEN_SCENE, LevelSevenScene);
 game.scene.add(SCENE_KEYS.LEVELDRAGGABLE_SCENE, LevelDraggableScene);
 
 //Starting the first one (preloader)
