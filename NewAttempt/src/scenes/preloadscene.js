@@ -26,7 +26,9 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl1','./assets/images/1-Background.png');
         this.load.image('backgroundl2', './assets/images/2-Background.png');
         this.load.image('bgl3', './assets/images/3-Background.png');
-        this.load.image('bgl4', './assets/images/4-Background.png');
+        this.load.image('bgl5', './assets/images/5-Background.png');
+        this.load.image('bgl6', './assets/images/6-Background.png');
+        this.load.image('bgl7', './assets/images/7-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
 
@@ -37,7 +39,6 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('boySleep', './assets/images/1-Animated-ChrisSleep.png');
         this.load.image('boyUp','./assets/images/1-Animated-ChrisUp.png');
         this.load.image('question1', './assets/images/1-Question.png');
-
         //L1 answers
         this.load.image('1a','./assets/images/sp_1a.png');
         this.load.image('1b','./assets/images/sp_1b.png');
@@ -63,35 +64,37 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('3c','./assets/images/sp_3c.png');
         this.load.image('3d','./assets/images/sp_3d.png');
 
-        //L4 answers
-        this.load.image('4a','./assets/images/sp_4a.png');
-        this.load.image('4b','./assets/images/sp_4b.png');
-        this.load.image('4c','./assets/images/sp_4c.png');
-        this.load.image('4d','./assets/images/sp_4d.png');
+        //Mystical Level 4
+        this.load.image('ameen4', './assets/images/ameen4.jpg');
 
+        //Level 5 stuff
+        this.load.image('ameen5', './assets/images/ameen5.jpg');
+        this.load.image('snow', './assets/images/5-Snow.png');
+        this.load.image('train1', './assets/images/5-Animated1.png');
+        this.load.image('train2', './assets/images/5-Animated2.png');
+        this.load.image('train3', './assets/images/5-Animated3.png');
+        this.load.image('question5', './assets/images/5-Question.png');
         //L5 answers
         this.load.image('5a','./assets/images/sp_5a.png');
         this.load.image('5b','./assets/images/sp_5b.png');
         this.load.image('5c','./assets/images/sp_5c.png');
         this.load.image('5d','./assets/images/sp_5d.png');
 
+        //Level 6 stuff
+        this.load.image('ameen6', './assets/images/ameen6.jpg');
+        this.load.image('question6', './assets/images/6-Question.png');
         //L6 answers
         this.load.image('6a','./assets/images/sp_6a.png');
         this.load.image('6b','./assets/images/sp_6b.png');
         this.load.image('6c','./assets/images/sp_6c.png');
         this.load.image('6d','./assets/images/sp_6d.png');
 
-
-        
-
-
-        //Level 4 stuff
-        this.load.image('ameen4', './assets/images/ameen4.jpg');
-        this.load.image('snow', './assets/images/4-Snow.png');
-        this.load.image('train1', './assets/images/4-Train1.png');
-        this.load.image('train2', './assets/images/4-Train2.png');
-        this.load.image('train3', './assets/images/4-Train3.png');
-
+        //Level 7 stuff
+        //L7 answers
+        this.load.image('7a','./assets/images/sp_7a.png');
+        this.load.image('7b','./assets/images/sp_7b.png');
+        this.load.image('7c','./assets/images/sp_7c.png');
+        this.load.image('7d','./assets/images/sp_7d.png');
 
 
         //Level draggable
@@ -112,7 +115,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.audio('ameen_intro', './assets/audio/ameens_intro.mp3'); //Credits
         this.load.audio('lvl1audio1','./assets/audio/level1audio1.mp3'); //Level 1
         this.load.audio('lvl3audio','./assets/audio/level3audio.mp3'); //Level 3
-        this.load.audio('lvl4audio', './assets/audio/level4audio.mp3'); //Level 4
+        this.load.audio('lvl5audio', './assets/audio/level4audio.mp3'); //Level 5
         this.load.audio('lvl2audio','./assets/audio/level2bgaudio.mp3');
         this.load.audio('mainmenuaudio','./assets/audio/mainmenuaudio.mp3');
 

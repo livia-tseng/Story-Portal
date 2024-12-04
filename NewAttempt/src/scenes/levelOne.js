@@ -71,13 +71,13 @@ export class LevelOneScene extends Phaser.Scene {
             this.input.enabled = false;
             this.tweens.add({
                 targets: [windowDark, boySleep],        // The image to tween
-                alpha: 1,              // Target alpha value
+                alpha: 0,              // Target alpha value
                 duration: 1000,         // Duration of fade-out in ms
                 onComplete: () => {
                     this.tweens.add({
                         targets: [windowLight, boyUp],
                         alpha: 1,      // Target alpha value
-                        duration: 1000,  // Duration of fade-in in ms
+                        duration: 500,  // Duration of fade-in in ms
                         onComplete: () => {
                             this.tweens.add({
                                 targets: [wb1, corrB, wb2, wb3, backButton, backText, question],
