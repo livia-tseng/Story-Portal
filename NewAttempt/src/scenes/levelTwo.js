@@ -50,8 +50,8 @@ export class LevelTwoScene extends Phaser.Scene {
 
 
         //answer buttons
-        let wb1 = wrongButton(this, 100, 100, '2a').setScale(.075);
-        let corrB = correctButton(this,240,100,'2c',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
+        let wb1 = wrongButton(this, 80, 50, '2a').setScale(.075);
+        let corrB = correctButton(this,220,50,'2c',SCENE_KEYS.LEVELTHREE_SCENE, (done) => {
             question.destroy();
             containerBackButton.destroy();
             const getOnTrain = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'gettingontrain');
@@ -73,8 +73,8 @@ export class LevelTwoScene extends Phaser.Scene {
             })
         }).setScale(.075);
         ;
-        let wb2 = wrongButton(this,380,100, '2b').setScale(.075);
-        let wb3 = wrongButton(this,520,100,'2d').setScale(.075);
+        let wb2 = wrongButton(this,360,50, '2b').setScale(.075);
+        let wb3 = wrongButton(this,500,50,'2d').setScale(.075);
 
         
 
@@ -96,15 +96,9 @@ export class LevelTwoScene extends Phaser.Scene {
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
 
-        let question = this.add.text(680, 210, 'Where is the train headed?',
-            {
-                fontFamily: 'Goudy',
-                color: '#D3D3D3',
-                fontSize: '30px',
-        }).setOrigin(1, 0).setDepth(1);
-        question.setAngle(-40);
-        question.setScale(0.8,1);
-
+        
+        let question = this.add.image(0,0, 'question2').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
+        
         //Stars on Click!
         effectOnClick(this);
     }

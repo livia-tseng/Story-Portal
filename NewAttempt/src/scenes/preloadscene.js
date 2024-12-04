@@ -24,8 +24,8 @@ export class PreloadScene extends Phaser.Scene {
         //this is how you load images (key/name/reference to image, path to actual image file)
         this.load.image('background', './assets/images/polarexpress.webp');
         this.load.image('bgl1','./assets/images/1-Background.png');
-        this.load.image('backgroundl2', './assets/images/level2bg.png');
-        this.load.image('bgl3', './assets/images/level3bg.png');
+        this.load.image('backgroundl2', './assets/images/2-Background.png');
+        this.load.image('bgl3', './assets/images/3-Background.png');
         this.load.image('bgl4', './assets/images/4-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
@@ -37,19 +37,26 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('boySleep', './assets/images/1-Animated-ChrisSleep.png');
         this.load.image('boyUp','./assets/images/1-Animated-ChrisUp.png');
         this.load.image('question1', './assets/images/1-Question.png');
-        this.load.image('snowflake', './assets/images/snowflake.png');
+
         //L1 answers
         this.load.image('1a','./assets/images/sp_1a.png');
         this.load.image('1b','./assets/images/sp_1b.png');
         this.load.image('1c','./assets/images/sp_1c.png');
         this.load.image('1d','./assets/images/sp_1d.png');
 
+        //Level 2 stuff
+        this.load.image('jayden2', './assets/images/jayden2.jpg');
+        this.load.image('question2', './assets/images/2-Question.png');
+        this.load.image('snowflake', './assets/images/snowflake.png');
         //L2 answers
         this.load.image('2a','./assets/images/sp_2a.png');
         this.load.image('2b','./assets/images/sp_2b.png');
         this.load.image('2c','./assets/images/sp_2c.png');
         this.load.image('2d','./assets/images/sp_2d.png');
 
+        //Level 3 stuff
+        this.load.image('jayden3', './assets/images/jayden3.jpg');
+        this.load.image('question3', './assets/images/3-Question.png');
         //L3 answers
         this.load.image('3a','./assets/images/sp_3a.png');
         this.load.image('3b','./assets/images/sp_3b.png');
@@ -85,8 +92,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('train2', './assets/images/4-Train2.png');
         this.load.image('train3', './assets/images/4-Train3.png');
 
-        this.load.image('jayden2', './assets/images/jayden2.jpg');
-        this.load.image('jayden3', './assets/images/jayden3.jpg');
+
 
         //Level draggable
         this.load.image('ameenDrag', './assets/images/ameenDraggable.jpg');
