@@ -46,10 +46,6 @@ export class LevelSevenScene extends Phaser.Scene {
         let wb1 = wrongButton(this,695,400,'7b').setScale(.075);
         let wb2 = wrongButton(this,435,520, '7c').setScale(.075);
         let wb3 = wrongButton(this,695,520,'7d').setScale(.075);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         
 
         //Stars on Click!
