@@ -59,7 +59,7 @@ export class LevelTwoScene extends Phaser.Scene {
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
                 .setOrigin(0, 0)
                 .setAlpha(1)
-                .setDepth(0);    
+                .setDepth(0);
             getOnTrain.on('complete', ()=> {
                 this.tweens.add({
                     targets: getOnTrain,
