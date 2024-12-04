@@ -11,7 +11,8 @@ import { LevelFourScene } from './scenes/levelFour.js';
 import { LevelFiveScene } from './scenes/levelFive.js';
 import { LevelSixScene } from './scenes/levelSix.js';
 import { LevelSevenScene } from './scenes/levelSeven.js';
-import { LevelDraggableScene } from './scenes/levelDraggable.js';
+import { LevelEightScene } from './scenes/levelEight.js';
+import { LevelFinalScene } from './scenes/levelFinal.js';
 
 
 //This the main js file
@@ -44,7 +45,8 @@ game.scene.add(SCENE_KEYS.LEVELFOUR_SCENE, LevelFourScene);
 game.scene.add(SCENE_KEYS.LEVELFIVE_SCENE, LevelFiveScene);
 game.scene.add(SCENE_KEYS.LEVELSIX_SCENE, LevelSixScene);
 game.scene.add(SCENE_KEYS.LEVELSEVEN_SCENE, LevelSevenScene);
-game.scene.add(SCENE_KEYS.LEVELDRAGGABLE_SCENE, LevelDraggableScene);
+game.scene.add(SCENE_KEYS.LEVELEIGHT_SCENE, LevelEightScene);
+game.scene.add(SCENE_KEYS.LEVELFINAL_SCENE, LevelFinalScene);
 
 //Starting the first one (preloader)
 game.scene.start(SCENE_KEYS.PRELOAD_SCENE);

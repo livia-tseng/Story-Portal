@@ -21,7 +21,7 @@ export class GameStartScene extends Phaser.Scene {
         const newScale = Math.max(screenWidth, screenHeight);
         this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
 
-        this.add.text(400, 80, 'Level Select', {
+        this.add.text(400, 60, 'Level Select', {
             fontFamily: 'Goudy',
             color: '#837d43',
             fontSize: '60px'
@@ -39,14 +39,15 @@ export class GameStartScene extends Phaser.Scene {
             introAudio.play();
         }
 
-        let levelOneBtn = this.add.image(115, 200, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
-        let levelTwoBtn = this.add.image(305, 200, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
-        let levelThreeBtn = this.add.image(495, 200, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
-        let levelFourBtn = this.add.image(685, 200, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
-        let levelFiveBtn = this.add.image(115, 400, 'ameen5').setOrigin(0.5).setScale(0.3).setDepth(1);
-        let levelSixBtn = this.add.image(305, 400, 'ameen6').setOrigin(0.5).setScale(0.3).setDepth(1);
-        let levelSevenBtn = this.add.image(495, 400, 'ameen7').setOrigin(0.5).setScale(0.3).setDepth(1);
-        let levelDragBtn = this.add.image(495, 400, 'ameenDrag').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelOneBtn = this.add.image(115, 180, 'samuelf').setOrigin(0.5,0.5).setScale(0.3,0.3).setDepth(1);
+        let levelTwoBtn = this.add.image(305, 180, 'jayden2').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelThreeBtn = this.add.image(495, 180, 'jayden3').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelFourBtn = this.add.image(685, 180, 'ameen4').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
+        let levelFiveBtn = this.add.image(115, 340, 'ameen5').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelSixBtn = this.add.image(305, 340, 'ameen6').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelSevenBtn = this.add.image(495, 340, 'ameen7').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelEightBtn = this.add.image(685, 340, 'avia8').setOrigin(0.5).setScale(0.3).setDepth(1);
+        let levelFinalBtn = this.add.image(400, 500, 'ameenFinal').setOrigin(0.5).setScale(0.3, 0.3).setDepth(1);
 
 
         levelOneBtn.setInteractive();
@@ -55,7 +56,9 @@ export class GameStartScene extends Phaser.Scene {
         levelFourBtn.setInteractive();
         levelFiveBtn.setInteractive();
         levelSixBtn.setInteractive();
-        levelDragBtn.setInteractive();
+        levelSevenBtn.setInteractive();
+        levelEightBtn.setInteractive();
+        levelFinalBtn.setInteractive();
 
         levelOneBtn.on("pointerup", ()=>{
             this.sound.stopAll();
@@ -86,10 +89,20 @@ export class GameStartScene extends Phaser.Scene {
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.LEVELSIX_SCENE);
         })
-        
-        levelDragBtn.on("pointerup", ()=> {
+
+        levelSevenBtn.on("pointerup", ()=>{
             this.sound.stopAll();
-            this.scene.start(SCENE_KEYS.LEVELDRAGGABLE_SCENE);
+            this.scene.start(SCENE_KEYS.LEVELSEVEN_SCENE);
+        })
+
+        levelEightBtn.on("pointerup", ()=>{
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.LEVELEIGHT_SCENE);
+        })
+        
+        levelFinalBtn.on("pointerup", ()=> {
+            this.sound.stopAll();
+            this.scene.start(SCENE_KEYS.LEVELFINAL_SCENE);
         })
 
         // Tween parameters
@@ -153,13 +166,29 @@ export class GameStartScene extends Phaser.Scene {
             buttonTween6.pause();  // Pause the jump animation
             buttonTween6.seek(0);  // Reset the tween to its initial state
         });
-        const buttonTweenDrag = jumpTween(levelDragBtn);
-        levelDragBtn.on('pointerover', () => {
-            buttonTweenDrag.resume(); // Resume the jump animation
+        const buttonTween7 = jumpTween(levelSevenBtn);
+        levelSevenBtn.on('pointerover', () => {
+            buttonTween7.resume(); // Resume the jump animation
         });
-        levelDragBtn.on('pointerout', () => {
-            buttonTweenDrag.pause();  // Pause the jump animation
-            buttonTweenDrag.seek(0);  // Reset the tween to its initial state
+        levelSevenBtn.on('pointerout', () => {
+            buttonTween7.pause();  // Pause the jump animation
+            buttonTween7.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTween8 = jumpTween(levelEightBtn);
+        levelEightBtn.on('pointerover', () => {
+            buttonTween8.resume(); // Resume the jump animation
+        });
+        levelEightBtn.on('pointerout', () => {
+            buttonTween8.pause();  // Pause the jump animation
+            buttonTween8.seek(0);  // Reset the tween to its initial state
+        });
+        const buttonTweenFinal = jumpTween(levelFinalBtn);
+        levelFinalBtn.on('pointerover', () => {
+            buttonTweenFinal.resume(); // Resume the jump animation
+        });
+        levelFinalBtn.on('pointerout', () => {
+            buttonTweenFinal.pause();  // Pause the jump animation
+            buttonTweenFinal.seek(0);  // Reset the tween to its initial state
         });
 
         

@@ -18,11 +18,9 @@ export class LevelSevenScene extends Phaser.Scene {
     }
 
     create() {
-        const screenWidth = 800 / this.textures.get('bgl6').getSourceImage().width;
-        const screenHeight = 600 / this.textures.get('bgl6').getSourceImage().height;
-        this.add.image(0,0, 'bgl6').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
-
-        let question = this.add.image(0, 0, 'question6').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
+        const screenWidth = 800 / this.textures.get('bgl7').getSourceImage().width;
+        const screenHeight = 600 / this.textures.get('bgl7').getSourceImage().height;
+        this.add.image(0,0, 'bgl7').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
@@ -42,14 +40,10 @@ export class LevelSevenScene extends Phaser.Scene {
         });
         
         // answer buttons
-        let corrB = correctButton(this, 435, 400, '7a', SCENE_KEYS.GAME_START_SCENE).setScale(.085);
-        let wb1 = wrongButton(this,695,400,'7b').setScale(.075);
-        let wb2 = wrongButton(this,435,520, '7c').setScale(.075);
-        let wb3 = wrongButton(this,695,520,'7d').setScale(.075);
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
+        let corrB = correctButton(this, 695, 520, '7b', SCENE_KEYS.LEVELEIGHT_SCENE).setScale(.085);
+        let wb1 = wrongButton(this,435,400,'7a').setScale(.085);
+        let wb2 = wrongButton(this,435,520, '7c').setScale(.085);
+        let wb3 = wrongButton(this,695,400,'7d').setScale(.085);
         
 
         //Stars on Click!

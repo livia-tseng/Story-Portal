@@ -29,6 +29,8 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl5', './assets/images/5-Background.png');
         this.load.image('bgl6', './assets/images/6-Background.png');
         this.load.image('bgl7', './assets/images/7-Background.png');
+        this.load.image('bgl8', './assets/images/8-Background.png');
+        this.load.image('bglf', './assets/images/Fin-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
 
@@ -90,15 +92,28 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('6d','./assets/images/sp_6d.png');
 
         //Level 7 stuff
+        this.load.image('ameen7', './assets/images/ameen7.jpg');
         //L7 answers
         this.load.image('7a','./assets/images/sp_7a.png');
         this.load.image('7b','./assets/images/sp_7b.png');
         this.load.image('7c','./assets/images/sp_7c.png');
         this.load.image('7d','./assets/images/sp_7d.png');
 
+        //Level 8 stuff
+        this.load.image('avia8', './assets/images/avia8.jpg');
+        this.load.image('question8', './assets/images/8-Question.png');
+        //L8 answers
+        this.load.image('8a','./assets/images/avia8.jpg');
+        this.load.image('8b','./assets/images/avia8.jpg');
+        this.load.image('8c','./assets/images/avia8.jpg');
+        this.load.image('8d','./assets/images/avia8.jpg');
 
-        //Level draggable
-        this.load.image('ameenDrag', './assets/images/ameenDraggable.jpg');
+
+        //Final level stuff
+        this.load.image('ameenFinal', './assets/images/ameenFinal.jpg');
+        this.load.image('giftLid', './assets/images/Fin-interactive1.png');
+        this.load.image('giftBox', './assets/images/Fin-interactive2.png');
+        this.load.image('bell', './assets/images/Fin-interactive3.png');
         
         this.load.image('startBtn', './assets/images/TextBTN_Big.png');
         this.load.image('creditsBtn', './assets/images/Exclamation_Yellow.png');

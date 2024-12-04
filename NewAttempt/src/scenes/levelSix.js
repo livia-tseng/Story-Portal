@@ -42,9 +42,9 @@ export class LevelSixScene extends Phaser.Scene {
         });
         
         // answer buttons
-        let corrB = correctButton(this, 435, 400, '6a', SCENE_KEYS.LEVELSEVEN_SCENE).setScale(.075);
+        let corrB = correctButton(this, 435, 520, '6c', SCENE_KEYS.LEVELSEVEN_SCENE).setScale(.075);
         let wb1 = wrongButton(this,695,400,'6b').setScale(.075);
-        let wb2 = wrongButton(this,435,520, '6c').setScale(.075);
+        let wb2 = wrongButton(this,435,400, '6a').setScale(.075);
         let wb3 = wrongButton(this,695,520,'6d').setScale(.075);
 
         
