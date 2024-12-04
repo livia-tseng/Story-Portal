@@ -42,7 +42,35 @@ export class LevelEightScene extends Phaser.Scene {
         });
         
         // answer buttons
-        let corrB = correctButton(this, 435, 400, '8a', SCENE_KEYS.LEVELFINAL_SCENE);
+        let corrB = correctButton(this, 435, 400, '8a', SCENE_KEYS.LEVELFINAL_SCENE, (done) => {
+            const lvl8tofinaleScene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl8tofinale');
+            lvl8tofinaleScene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);
+                const skipButton = this.add.image(750, 550,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
+
+                skipButton.on('pointerup', () => {
+                    skipButton.destroy();
+                    if (lvl8tofinaleScene.isPlaying()) {
+                        lvl8tofinaleScene.stop();
+                    }
+                    lvl8tofinaleScene.destroy();
+                    done();
+                })
+            lvl8tofinaleScene.on('complete', ()=> {
+                this.tweens.add({
+                    targets: lvl8tofinaleScene,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        lvl8tofinaleScene.destroy();
+                        done();
+                    }
+                })
+            })
+        });
         let wb1 = wrongButton(this,695,400,'8b');
         let wb2 = wrongButton(this,435,520, '8c');
         let wb3 = wrongButton(this,695,520,'8d');

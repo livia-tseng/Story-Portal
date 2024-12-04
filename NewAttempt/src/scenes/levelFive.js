@@ -35,7 +35,35 @@ export class LevelFiveScene extends Phaser.Scene {
         lvl5Audio.play();
 
         // answer buttons
-        let corrBtn = correctButton(this, 550, 460, '5a', SCENE_KEYS.LEVELSIX_SCENE).setDepth(2).setAlpha(0).setScale(.075);
+        let corrBtn = correctButton(this, 550, 460, '5a', SCENE_KEYS.LEVELSIX_SCENE, (done) => {
+            const lvl5to6Scene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl5tolvl6');
+            lvl5to6Scene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);
+                const skipButton = this.add.image(750, 550,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
+
+                skipButton.on('pointerup', () => {
+                    skipButton.destroy();
+                    if (lvl5to6Scene.isPlaying()) {
+                        lvl5to6Scene.stop();
+                    }
+                    lvl5to6Scene.destroy();
+                    done();
+                })
+            lvl5to6Scene.on('complete', ()=> {
+                this.tweens.add({
+                    targets: lvl5to6Scene,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        lvl5to6Scene.destroy();
+                        done();
+                    }
+                })
+            })
+        }).setDepth(2).setAlpha(0).setScale(.075);
         let wBtn1 = wrongButton(this,700,460,'5b').setDepth(2).setAlpha(0).setScale(.075);
         let wBtn2 = wrongButton(this,550,550, '5c').setDepth(2).setAlpha(0).setScale(.075);
         let wBtn3 = wrongButton(this,700,550,'5d').setDepth(2).setAlpha(0).setScale(.075);
