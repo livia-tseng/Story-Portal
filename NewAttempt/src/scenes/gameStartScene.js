@@ -11,7 +11,8 @@ export class GameStartScene extends Phaser.Scene {
     }
 
     preload() {
-        
+        this.load.audio('buttonClick', 'assets/audio/button_click.mp3');
+
     }
     createSnowEffect() {
         // Create a group for snow particles
@@ -64,7 +65,9 @@ export class GameStartScene extends Phaser.Scene {
         this.add.text(400, 60, 'Level Select', {
             fontFamily: 'Goudy',
             color: '#837d43',
-            fontSize: '60px'
+            fontSize: '60px',
+            stroke: '#efe157',
+            strokeThickness: 2
         }).setOrigin(0.5, 0.5).setDepth(1);
         
 

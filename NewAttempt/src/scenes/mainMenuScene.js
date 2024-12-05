@@ -14,6 +14,10 @@ export class MainMenuScene extends Phaser.Scene {
     init() {
 
     }
+    preload(){
+        // Preload the button click sound
+        this.load.audio('buttonClick', 'assets/audio/button_click.mp3');
+    }
     createBlizzardEffect() {
         // Create a group for blizzard particles
         this.blizzardParticles = [];
@@ -113,6 +117,7 @@ export class MainMenuScene extends Phaser.Scene {
 
         //Start Game Button
         let startButton = this.add.image(400, 480, 'startBtn').setDepth(1);
+        let buttonClick = this.sound.add('buttonClick', { volume: 2.0 });
 
         //Credits Button
         let creditsButton =  this.add.image(800, 0, 'creditsBtn').setOrigin(1, 0);
@@ -127,6 +132,12 @@ export class MainMenuScene extends Phaser.Scene {
             console.log("Credits Button Pressed");
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.CREDITS_SCENE); //Calling start will automatically kill current scene and start the new one
+            buttonClick.play();
+           // Transition to the new scene after a brief delay to allow the sound to play
+            this.time.delayedCall(100, () => {
+                this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+                buttonClick.stop(); // Stop the sound after the scene change
+            });
         })  
 
         //Same deal
@@ -134,6 +145,12 @@ export class MainMenuScene extends Phaser.Scene {
             console.log("Start Button Pressed");
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
             // Button Hover Animation (pulsing effect)
+            buttonClick.play();
+            // Transition to the new scene after a brief delay to allow the sound to play
+            this.time.delayedCall(100, () => {
+                this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+                buttonClick.stop(); // Stop the sound after the scene change
+            });
 
         })
 
