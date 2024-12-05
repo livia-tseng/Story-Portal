@@ -14,7 +14,65 @@ export class MainMenuScene extends Phaser.Scene {
     init() {
 
     }
-
+    preload(){
+        // Preload the button click sound
+        this.load.audio('buttonClick', 'assets/audio/button_click.mp3');
+    }
+    createBlizzardEffect() {
+        // Create a group for blizzard particles
+        this.blizzardParticles = [];
+        
+        // More snowflakes for a dense blizzard
+        const snowflakeCount = 200;
+        
+        // Create snowflakes
+        for (let i = 0; i < snowflakeCount; i++) {
+            // Randomize starting positions with more spread
+            const x = Phaser.Math.Between(-100, this.scale.width + 100);
+            const y = Phaser.Math.Between(-200, 0);
+            
+            // Vary snowflake sizes more dramatically
+            const size = Phaser.Math.FloatBetween(0.5, 3);
+            
+            // Create a snowflake with varying opacity
+            const snowflake = this.add.circle(x, y, size, 0xffffff, Phaser.Math.FloatBetween(0.3, 0.8));
+            
+            // Store additional properties for more dynamic movement
+            this.blizzardParticles.push({
+                sprite: snowflake,
+                fallSpeed: Phaser.Math.Between(100, 300),  // Faster falling
+                wobbleSpeed: Phaser.Math.FloatBetween(0.5, 2),  // Horizontal wobble intensity
+                wobbleOffset: Math.random() * Math.PI * 2  // Random start point for wobble
+            });
+        }
+    }
+    
+    updateBlizzardEffect(time, delta) {
+        if (!this.blizzardParticles) return;
+        
+        this.blizzardParticles.forEach((particle) => {
+            // Faster downward movement
+            particle.sprite.y += particle.fallSpeed * (delta / 1000);
+            
+            // More chaotic horizontal movement (wobble)
+            particle.wobbleOffset += particle.wobbleSpeed * 0.05;
+            particle.sprite.x += Math.sin(particle.wobbleOffset) * 3;
+            
+            // If snowflake goes below screen, reset to top with more randomness
+            if (particle.sprite.y > this.scale.height) {
+                particle.sprite.y = Phaser.Math.Between(-200, -50);
+                particle.sprite.x = Phaser.Math.Between(-100, this.scale.width + 100);
+                
+                // Randomize speed and wobble again for variety
+                particle.fallSpeed = Phaser.Math.Between(100, 300);
+                particle.wobbleSpeed = Phaser.Math.FloatBetween(0.5, 2);
+            }
+        });
+    }
+    update(time, delta) {
+        // Your update logic here
+        this.updateBlizzardEffect(time, delta);
+    }
     //The create method is where you actually draw the stuff u preloaded
     create() {
         
@@ -34,8 +92,20 @@ export class MainMenuScene extends Phaser.Scene {
         const titleText = this.add.text(400, 270, 'The Polar Express', {
             fontFamily: 'Gaudy',
             color: '#efe157',
-            fontSize: '70px'
+            fontSize: '70px',
+            stroke: '#efe157',
+            strokeThickness: 2
         }).setOrigin(0.5).setDepth(1);
+
+        // Floating/Wobble tween
+        this.tweens.add({
+            targets: titleText,
+            y: 280,
+            duration: 2000,
+            yoyo: true,
+            repeat: -1,
+            ease: 'Sine.easeInOut'
+        });
         
         //Start Text
         const startText = this.add.text(310, 435, 'START',
@@ -47,6 +117,7 @@ export class MainMenuScene extends Phaser.Scene {
 
         //Start Game Button
         let startButton = this.add.image(400, 480, 'startBtn').setDepth(1);
+        let buttonClick = this.sound.add('buttonClick', { volume: 2.0 });
 
         //Credits Button
         let creditsButton =  this.add.image(800, 0, 'creditsBtn').setOrigin(1, 0);
@@ -61,12 +132,26 @@ export class MainMenuScene extends Phaser.Scene {
             console.log("Credits Button Pressed");
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.CREDITS_SCENE); //Calling start will automatically kill current scene and start the new one
+            buttonClick.play();
+           // Transition to the new scene after a brief delay to allow the sound to play
+            this.time.delayedCall(100, () => {
+                this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+                buttonClick.stop(); // Stop the sound after the scene change
+            });
         })  
 
         //Same deal
         startButton.on("pointerup", ()=>{
             console.log("Start Button Pressed");
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+            // Button Hover Animation (pulsing effect)
+            buttonClick.play();
+            // Transition to the new scene after a brief delay to allow the sound to play
+            this.time.delayedCall(100, () => {
+                this.scene.start(SCENE_KEYS.GAME_START_SCENE);
+                buttonClick.stop(); // Stop the sound after the scene change
+            });
+
         })
 
         //Stars on Click!
@@ -78,7 +163,8 @@ export class MainMenuScene extends Phaser.Scene {
             loop: true,
         });
         introAudio.play();
-
+ // Add this line
+ this.createBlizzardEffect();
 
     }
 
