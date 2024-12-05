@@ -37,7 +37,7 @@ export class LevelFiveScene extends Phaser.Scene {
         // answer buttons
         let corrBtn = correctButton(this, 550, 460, '5a', SCENE_KEYS.LEVELSIX_SCENE, (done) => {
             const lvl5to6Scene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl5tolvl6');
-            lvl5to6Scene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            lvl5to6Scene.setOrigin(0.5).setDepth(2).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
                 .setOrigin(0, 0)
                 .setAlpha(1)
