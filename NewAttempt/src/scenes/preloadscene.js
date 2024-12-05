@@ -140,7 +140,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.video('tokyodrift','./assets/videos/tokyodrift.mp4');
         this.load.video('lvl3tolvl4','./assets/videos/lvl3tolvl4.mp4');
         this.load.video('lvl5tolvl6', './assets/video/lvl5tolvl6.mp4');
-        this.load.video('lvl7tolvl8','./assets/video/lvl7tolvl8/mp4');
+        this.load.video('lvl7tolvl8','./assets/video/lvl7tolvl8.mp4');
         this.load.video('lvl8tofinale','./assets/videos/level8tofinale.mp4');
     }
     

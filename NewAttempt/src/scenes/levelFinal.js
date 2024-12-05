@@ -129,7 +129,7 @@ export class LevelFinalScene extends Phaser.Scene {
         let text = this.add.text(400, 40, 'Thank you for playing!',
             {
                 fontFamily: 'Goudy',
-                color: 'black',
+                color: 'white',
                 fontSize: '50px',
         }).setOrigin(0.5).setDepth(1).setAlpha(0);
 

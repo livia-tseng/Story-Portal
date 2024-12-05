@@ -22,7 +22,7 @@ export class LevelEightScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('bgl8').getSourceImage().height;
         this.add.image(0,0, 'bgl8').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
-        let question = this.add.image(0, 0, 'question8').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
+        let question = this.add.image(0, 0, 'question8').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
