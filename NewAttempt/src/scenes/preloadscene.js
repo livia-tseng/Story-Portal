@@ -26,7 +26,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl1','./assets/images/1-Background.png');
         this.load.image('backgroundl2', './assets/images/2-Background.png');
         this.load.image('bgl3', './assets/images/3-Background.png');
-        this.load.image('bgl4', './assets/images/4-bg.png');
+        this.load.image('bgl4', './assets/images/4-bg_and_q.png');
         this.load.image('bgl5', './assets/images/5-Background.png');
         this.load.image('bgl6', './assets/images/6-Background.png');
         this.load.image('bgl7', './assets/images/7-Background.png');
@@ -70,7 +70,10 @@ export class PreloadScene extends Phaser.Scene {
 
         //Mystical Level 4
         this.load.image('ameen4', './assets/images/ameen4.jpg');
-        this.load.image('question4', './assets/images/4-question.png');
+        this.load.image('4a','./assets/images/4a-Answer.png');
+        this.load.image('4b','./assets/images/4b-Answer.png');
+        this.load.image('4c','./assets/images/4c-Answer.png');
+        this.load.image('4d','./assets/images/4d-Answer.png');
         
 
         //Level 5 stuff
