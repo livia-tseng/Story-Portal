@@ -23,6 +23,12 @@ export class LevelEightScene extends Phaser.Scene {
         this.add.image(0,0, 'bgl8').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
         let question = this.add.image(0, 0, 'question8').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
+
+        let trainLevel1 = this.sound.add('lvl2audio', {
+            volume: 1.0,
+            loop: true,
+        });
+        trainLevel1.play();
         
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
