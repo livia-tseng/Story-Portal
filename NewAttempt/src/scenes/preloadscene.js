@@ -125,6 +125,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('mediumButton', './assets/images/TextBTN_Medium.png');
         this.load.image('star', './assets/images/star.png');
         this.load.image('heart', './assets/images/pinkheart.png');
+        this.load.image('lvlselectbg', './assets/images/level_select_bg.png')
         
         //Audio
         this.load.audio('ameen_intro', './assets/audio/ameens_intro.mp3'); //Credits

@@ -16,14 +16,14 @@ export class GameStartScene extends Phaser.Scene {
 
     create(){
         //Background
-        const screenWidth = this.scale.width / this.textures.get('background').getSourceImage().width;
-        const screenHeight = this.scale.height / this.textures.get('background').getSourceImage().height;
+        const screenWidth = 800 / this.textures.get('background').getSourceImage().width;
+        const screenHeight = 600 / this.textures.get('background').getSourceImage().height;
         const newScale = Math.max(screenWidth, screenHeight);
-        this.add.image(0,0,'mountainBackground').setOrigin(0).setScale(newScale).setDepth(0);
+        this.add.image(0,0,'lvlselectbg').setOrigin(0).setScale(800/this.textures.get('lvlselectbg').getSourceImage().width, 600/this.textures.get('lvlselectbg').getSourceImage().height).setDepth(0);
 
         this.add.text(400, 60, 'Level Select', {
             fontFamily: 'Goudy',
-            color: '#837d43',
+            color: 'white',
             fontSize: '60px'
         }).setOrigin(0.5, 0.5).setDepth(1);
         

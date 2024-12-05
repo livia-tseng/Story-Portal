@@ -69,7 +69,7 @@ export class LevelFinalScene extends Phaser.Scene {
         .setInteractive();
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-            dragY = Phaser.Math.Clamp(dragY, 0, 380);
+            dragY = Phaser.Math.Clamp(dragY, 300, 380);
             gameObject.y = dragY;
         });
 
