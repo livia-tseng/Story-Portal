@@ -107,10 +107,10 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('avia8', './assets/images/avia8.jpg');
         this.load.image('question8', './assets/images/8-Question.png');
         //L8 answers
-        this.load.image('8a','./assets/images/avia8.jpg');
-        this.load.image('8b','./assets/images/avia8.jpg');
-        this.load.image('8c','./assets/images/avia8.jpg');
-        this.load.image('8d','./assets/images/avia8.jpg');
+        this.load.image('8a','./assets/images/8a-Answer.PNG');
+        this.load.image('8b','./assets/images/8b-Answer.PNG');
+        this.load.image('8c','./assets/images/8c-Answer.PNG');
+        this.load.image('8d','./assets/images/8d-Answer.PNG');
 
 
         //Final level stuff

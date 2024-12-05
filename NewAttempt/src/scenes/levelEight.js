@@ -48,7 +48,7 @@ export class LevelEightScene extends Phaser.Scene {
         });
         
         // answer buttons
-        let corrB = correctButton(this, 435, 400, '8a', SCENE_KEYS.LEVELFINAL_SCENE, (done) => {
+        let corrB = correctButton(this, 435, 400, '8d', SCENE_KEYS.LEVELFINAL_SCENE, (done) => {
             const lvl8tofinaleScene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl8tofinale');
             lvl8tofinaleScene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
@@ -76,10 +76,10 @@ export class LevelEightScene extends Phaser.Scene {
                     }
                 })
             })
-        });
-        let wb1 = wrongButton(this,695,400,'8b');
-        let wb2 = wrongButton(this,435,520, '8c');
-        let wb3 = wrongButton(this,695,520,'8d');
+        }).setScale(0.085);
+        let wb1 = wrongButton(this,695,400,'8b').setScale(0.085);
+        let wb2 = wrongButton(this,435,520, '8c').setScale(0.085);
+        let wb3 = wrongButton(this,695,520,'8a').setScale(0.085);
         
 
         //Stars on Click!
