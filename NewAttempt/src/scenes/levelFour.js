@@ -41,8 +41,8 @@ export class LevelFourScene extends Phaser.Scene {
         });
 
         // answer buttons
-        let corrB = correctButton(this, 695, 400, '4b', SCENE_KEYS.LEVELFINAL_SCENE, (done) => {
-            const lvl8tofinaleScene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl8tofinale');
+        let corrB = correctButton(this, 695, 400, '4b', SCENE_KEYS.LEVELFIVE_SCENE, (done) => {
+            const lvl8tofinaleScene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'tokyodrift');
             lvl8tofinaleScene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
             const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
                 .setOrigin(0, 0)
