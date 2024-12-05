@@ -13,6 +13,46 @@ export class GameStartScene extends Phaser.Scene {
     preload() {
         
     }
+    createSnowEffect() {
+        // Create a group for snow particles
+        this.snowParticles = [];
+        
+        // Number of snowflakes
+        const snowflakeCount = 100;
+        
+        // Create snowflakes
+        for (let i = 0; i < snowflakeCount; i++) {
+            // Randomize starting positions across the screen
+            const x = Phaser.Math.Between(0, this.scale.width);
+            const y = Phaser.Math.Between(-100, 0);
+            
+            // Create a snowflake
+            const snowflake = this.add.circle(x, y, Phaser.Math.Between(1, 3), 0xffffff, 0.7);
+            
+            // Store additional properties in an object
+            this.snowParticles.push({
+                sprite: snowflake,
+                fallSpeed: Phaser.Math.Between(50, 200)
+            });
+        }
+    }
+    update(time, delta) {
+        if (!this.snowParticles) return;
+        
+        this.snowParticles.forEach((particle) => {
+            // Move snowflake down using the stored speed
+            particle.sprite.y += particle.fallSpeed * (delta / 1000);
+            
+            // If snowflake goes below screen, reset to top
+            if (particle.sprite.y > this.scale.height) {
+                particle.sprite.y = -10;
+                particle.sprite.x = Phaser.Math.Between(0, this.scale.width);
+            }
+            
+            // Optional: Add slight horizontal movement to simulate wind
+            particle.sprite.x += Math.sin(time * 0.001) * 0.5;
+        });
+    }
 
     create(){
         //Background
@@ -200,7 +240,8 @@ export class GameStartScene extends Phaser.Scene {
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.MAIN_MENU_SCENE);
         })
-
+        // Add this line at the end of create()
+        this.createSnowEffect();
         effectOnClick(this);
     }
 }
