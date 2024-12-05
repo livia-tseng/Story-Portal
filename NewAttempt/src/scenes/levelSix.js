@@ -23,7 +23,13 @@ export class LevelSixScene extends Phaser.Scene {
         this.add.image(0,0, 'bgl6').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
         let question = this.add.image(0, 0, 'question6').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(1);
-        
+
+        let trainLevel1 = this.sound.add('lvl6audio', {
+            volume: 1.0,
+            loop: true,
+        });
+        trainLevel1.play();
+
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
         const backText = this.add.text(0, 0, 'BACK',
@@ -70,7 +76,7 @@ export class LevelSixScene extends Phaser.Scene {
                     }
                 })
             })
-        }).setScale(.075).setAlpha(0);
+        }).setScale(.075).setAlpha(1);
         let wb1 = wrongButton(this,695,400,'6b').setScale(.075);
         let wb2 = wrongButton(this,435,400, '6a').setScale(.075);
         let wb3 = wrongButton(this,695,520,'6d').setScale(.075);

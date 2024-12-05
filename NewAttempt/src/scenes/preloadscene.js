@@ -26,6 +26,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bgl1','./assets/images/1-Background.png');
         this.load.image('backgroundl2', './assets/images/2-Background.png');
         this.load.image('bgl3', './assets/images/3-Background.png');
+        this.load.image('bgl4', './assets/images/4-bg.png');
         this.load.image('bgl5', './assets/images/5-Background.png');
         this.load.image('bgl6', './assets/images/6-Background.png');
         this.load.image('bgl7', './assets/images/7-Background.png');
@@ -33,6 +34,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image('bglf', './assets/images/Fin-Background.png');
         this.load.image('mountainBackground', './assets/images/polar_express_mountain.jpg');
         this.load.image('dragBackground', './assets/images/UI-board-Large-parchment.png');
+        this.load.image('levelselect', './assets/images/level_select_bg.png');
 
         //Level 1 stuff
         this.load.image('samuelf','./assets/images/samuelf.png');
@@ -68,6 +70,8 @@ export class PreloadScene extends Phaser.Scene {
 
         //Mystical Level 4
         this.load.image('ameen4', './assets/images/ameen4.jpg');
+        this.load.image('question4', './assets/images/4-question.png');
+        
 
         //Level 5 stuff
         this.load.image('ameen5', './assets/images/ameen5.jpg');
@@ -133,14 +137,17 @@ export class PreloadScene extends Phaser.Scene {
         this.load.audio('lvl5audio', './assets/audio/level4audio.mp3'); //Level 5
         this.load.audio('lvl2audio','./assets/audio/level2bgaudio.mp3');
         this.load.audio('mainmenuaudio','./assets/audio/mainmenuaudio.mp3');
+        this.load.audio('lvl6audio','./assets/audio/level5audio.mp3');
+        this.load.audio('lvl7audio','./assets/audio/level7audio.mp3');
+        this.load.audio('finaleaudio','./assets/audio/PolarTheme.mp3');
 
         //video
         this.load.video('trainarriving','./assets/videos/trainarriving.mp4');
         this.load.video('gettingontrain','./assets/videos/gettingontrain.mp4');
         this.load.video('tokyodrift','./assets/videos/tokyodrift.mp4');
         this.load.video('lvl3tolvl4','./assets/videos/lvl3tolvl4.mp4');
-        this.load.video('lvl5tolvl6', './assets/video/lvl5tolvl6.mp4');
-        this.load.video('lvl7tolvl8','./assets/video/lvl7tolvl8.mp4');
+        this.load.video('lvl5tolvl6', './assets/videos/lvl5tolvl6.mp4');
+        this.load.video('lvl7tolvl8','./assets/videos/lvl7tolvl8.mp4');
         this.load.video('lvl8tofinale','./assets/videos/level8tofinale.mp4');
     }
     

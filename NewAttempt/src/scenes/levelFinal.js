@@ -111,7 +111,7 @@ export class LevelFinalScene extends Phaser.Scene {
                             this.tweens.add({
                                 targets: text,
                                 alpha: 1,
-                                duration: 3000,
+                                duration: 1200,
                                 onComplete: () => {
                                     this.time.delayedCall(3000, () => {
                                         // Change to the desired scene
@@ -132,8 +132,6 @@ export class LevelFinalScene extends Phaser.Scene {
                 color: 'white',
                 fontSize: '50px',
         }).setOrigin(0.5).setDepth(1).setAlpha(0);
-
-
 
 
     }

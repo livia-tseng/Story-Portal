@@ -22,6 +22,12 @@ export class LevelSevenScene extends Phaser.Scene {
         const screenHeight = 600 / this.textures.get('bgl7').getSourceImage().height;
         this.add.image(0,0, 'bgl7').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
         
+        let trainLevel1 = this.sound.add('lvl7audio', {
+            volume: 1.0,
+            loop: true,
+        });
+        trainLevel1.play();
+
         //Back Button Stuff
         const backButton = this.add.image(0, 0, 'mediumButton').setDepth(2);
         const backText = this.add.text(0, 0, 'BACK',
@@ -68,7 +74,7 @@ export class LevelSevenScene extends Phaser.Scene {
                     }
                 })
             })
-        }).setScale(.085).setAlpha(0);
+        }).setScale(.085).setAlpha(1);
         let wb1 = wrongButton(this,435,400,'7a').setScale(.085);
         let wb2 = wrongButton(this,435,520, '7c').setScale(.085);
         let wb3 = wrongButton(this,695,400,'7d').setScale(.085);
