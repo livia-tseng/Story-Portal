@@ -18,9 +18,9 @@ export class LevelFourScene extends Phaser.Scene {
     }
 
     create() {
-        const screenWidth = 800 / this.textures.get('dragBackground').getSourceImage().width;
-        const screenHeight = 600 / this.textures.get('dragBackground').getSourceImage().height;
-        this.add.image(0,0, 'dragBackground').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
+        const screenWidth = 800 / this.textures.get('bgl4').getSourceImage().width;
+        const screenHeight = 600 / this.textures.get('bgl4').getSourceImage().height;
+        this.add.image(0,0, 'bgl4').setOrigin(0).setScale(screenWidth, screenHeight).setDepth(0);
 
 
         //Back Button Stuff
@@ -39,6 +39,40 @@ export class LevelFourScene extends Phaser.Scene {
             this.sound.stopAll();
             this.scene.start(SCENE_KEYS.GAME_START_SCENE);
         });
+
+        // answer buttons
+        let corrB = correctButton(this, 695, 400, '4b', SCENE_KEYS.LEVELFINAL_SCENE, (done) => {
+            const lvl8tofinaleScene = this.add.video(this.cameras.main.centerX,this.cameras.main.centerY,'lvl8tofinale');
+            lvl8tofinaleScene.setOrigin(0.5).setDepth(1).setMute(false).setVolume(1.0).play();
+            const blackOverlay = this.add.rectangle(0, 0, this.cameras.main.width, this.cameras.main.height, 0x000000)
+                .setOrigin(0, 0)
+                .setAlpha(1)
+                .setDepth(0);
+                const skipButton = this.add.image(750, 550,'samuelf').setOrigin(0.5).setScale(0.3).setDepth(3).setInteractive();
+
+                skipButton.on('pointerup', () => {
+                    skipButton.destroy();
+                    if (lvl8tofinaleScene.isPlaying()) {
+                        lvl8tofinaleScene.stop();
+                    }
+                    lvl8tofinaleScene.destroy();
+                    done();
+                })
+            lvl8tofinaleScene.on('complete', ()=> {
+                this.tweens.add({
+                    targets: lvl8tofinaleScene,
+                    alpha: 0,
+                    duration: 1000,
+                    onComplete: () => {
+                        lvl8tofinaleScene.destroy();
+                        done();
+                    }
+                })
+            })
+        }).setScale(.085);
+        let wb1 = wrongButton(this,435,400,'4a').setScale(.085);
+        let wb2 = wrongButton(this,435,520, '4c').setScale(.085);
+        let wb3 = wrongButton(this,695,520,'4d').setScale(.085);
 
 
 
